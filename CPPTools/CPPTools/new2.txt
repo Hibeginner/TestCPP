@@ -1,0 +1,497 @@
+
+根
+	RO工具集
+		其他工具
+			资源快速调整
+				选出有丢失材质或纹理的预设	Assets/资源快速调整/选出有丢失材质或纹理的预设
+				处理动画	Assets/资源快速调整/处理动画
+				当前目录下所有可调整资源	Assets/资源快速调整/当前目录下所有可调整资源
+				处理模型	Assets/资源快速调整/处理模型
+				一键处理挂件	Assets/资源快速调整/一键处理挂件
+				处理纹理	Assets/资源快速调整/处理纹理
+				修改MLuaUIGroup ClassName	Assets/资源快速调整/修改MLuaUIGroup ClassName
+				所选动画组件规范设置	Assets/资源快速调整/所选动画组件规范设置
+				处理预设	Assets/资源快速调整/处理预设
+				处理特效	Assets/资源快速调整/处理特效
+				处理材质	Assets/资源快速调整/处理材质
+				一键处理特效	Assets/资源快速调整/一键处理特效
+				一键处理场景	Assets/资源快速调整/一键处理场景
+			废资源检查
+				检查场景	ROTools/废资源检查/检查场景
+				分析资源空间占比	ROTools/废资源检查/分析资源空间占比
+				检查模型	ROTools/废资源检查/检查模型
+				检查动画	ROTools/废资源检查/检查动画
+				删除没用的文件	ROTools/废资源检查/删除没用的文件
+				检查特效	ROTools/废资源检查/检查特效
+				检查小地图	ROTools/废资源检查/检查小地图
+			编译
+				数据文件	Assets/编译/数据文件
+				触发器	Assets/编译/触发器
+				AI	Assets/编译/AI
+			导出
+				选中的assets文件写成Binary数据	Assets/导出/Binary数据
+				选中的assets文件写成Json数据	Assets/导出/Json数据
+			GPU Skinning
+				Create GPU Skinning Mesh	Assets/GPU Skinning/Create GPU Skinning Mesh
+				Create Vertex Anim Mesh	Assets/GPU Skinning/Create Vertex Anim Mesh
+			Hotfix Tools
+				Sign MPlatformConfig	ROTools/Hotfix Tools/Sign MPlatformConfig
+				Config Editor	ROTools/Hotfix Tools/Config Editor
+			Hierarchy窗口设置
+				窗口中物体右侧开启勾选框 (原GameObject Active Toggle Open)	ROTools/HierarchySet/GameObject Active Toggle Open
+				窗口中物体右侧关闭勾选框 (原GameObject Active Toggle Close)	ROTools/HierarchySet/GameObject Active Toggle Close
+			清除本地数据
+				清除所有	ROTools/清除本地数据/清除所有
+				清除首包解压标记	ROTools/清除本地数据/清除首包解压标记
+			导航工具
+				导航数据生成工具	ROTools/PathTools/导航数据生成工具
+			Emoji工具
+				Build Emoji	ROTools/Emoji Tools/Build Emoji
+			Theater
+				创建 MTheaterCameraAsset Asset	ROTools/Theater/Create Asset
+			Reporter
+				创建物体添加Reporter脚本 配合Lua脚本记录日志 (原Create)	Reporter/Create
+			设置周年庆测试账号	ROTools/设置周年庆测试账号
+			MemoryProfiler	Window/MemoryProfiler
+			场景、技能数据 protobuffer转xml (原PbEditor)	ROTools/PbEditor
+			选中物体然后反选含有_bandpose的物体	Assets/Select All Model Without BindPose In Folder
+			Align View to Selected (hotkey) #&f	GameObject/Align View to Selected (hotkey) #&f
+			创建AssetPolicy ScriptableObject (原Create Asset Policy)	Assets/Create Asset Policy
+			Unload Unused Assets	GameObject/Clean
+			StatisticAllResources	Tools/ResTools/ResStatistic
+			防剔除文件生成 #%F12	ROTools/Other/防剔除文件生成 #%F12
+			ClearProgressBar	Tools/ClearProgressBar
+			拍照点记录工具	ROTools/Other/拍照点记录工具
+			Open UUIDObjectPool Debugger	ROTools/Debugger/Open UUIDObjectPool Debugger
+			卸载rocommongamelibs.dll	ROTools/卸载rocommongamelibs.dll
+			Export Preload Paths to preload.txt	ROTools/Export Preload Paths
+			MemoryProfilerInspect	Window/MemoryProfilerInspect
+			保存所有资源 (原SaveAllAsset)	Assets/SaveAsset
+			创建物体ClimbMesh (原Climbing Zone)	GameObject/Climbing Zone
+			创建AssetRule ScriptableObject (原Create Asset Auditing Rule)	Assets/Create Asset Auditing Rule
+		UI工具
+			查询引用
+				查询引用	Tools/ResTools/查询引用
+				Find References In Project	ROTools/Finder/Find References In Project
+				Find References In Project	ROTools/Finder/Find References In Project
+				查找丢失的脚本	ROTools/Finder/查找丢失的脚本
+				查找脚本所有引用	ROTools/Finder/查找脚本所有引用
+				查找引用关系(artres文件夹)	Assets/查询引用/查找引用关系
+				查找引用关系(artres\\UI\\prefab文件夹) &Z	Assets/查询引用/查找在UI的prefab里的引用 &Z
+				选中物体Text组件为Bestfit，输出组件名字 &C	Assets/查询引用/查找Bestfit &C
+				查询图集失去引用的元素	Assets/查询引用/查询图集失去引用的元素
+				查询引用(整个工程)	Assets/ResTools/查询引用
+				查询引用(刷新选中物体依赖)	Assets/ResTools/查询引用(刷新部分索引)
+			脚本替换
+				Image换成RaycastImage	ROTools/UITools/RaycastImage replace
+				指定文件Image换成RaycastImage	ROTools/UITools/RaycastImage replace select
+				Mask换成RectMask2D	ROTools/UITools/Mask to rect mask 2d
+				字体换成Common.TTF	ROTools/UITools/Arial to Common
+				Scripts Replace	ROTools/UITools/Scripts Replace
+				打开脚本替换窗口 (原Replace Script By GUID)	ROTools/Other/Replace Script By GUID
+				GraphicRaycaster换成MGraphicRaycaster (原Fresh Raycaster)	ROTools/FreshData/Fresh Raycaster
+				批量替换prefab中组件	ROTools/批量替换prefab中组件
+			UI
+				UIMesh (原Mesh Image)	GameObject/UI/Mesh Image
+				AVPro Video uGUI	GameObject/UI/AVPro Video uGUI
+				Loop Horizontal Scroll Rect	GameObject/UI/Loop Horizontal Scroll Rect
+				Loop Vertical Scroll Rect	GameObject/UI/Loop Vertical Scroll Rect
+			Atlas Maker
+				Open Atlas Maker Custom	UITools/Open Atlas Maker Custom
+				Batch Atlas Maker	UITools/Batch Atlas Maker
+				Batch Atlas Maker Lit	UITools/Batch Atlas Maker
+			选中物体生成脚本文件
+				生成Lua文件 (原GenUIFromObj(Lua))	UITools/GenUIFromObj(Lua)
+				生成C#文件 (原GenUIFromObj(C#))	UITools/GenUIFromObj(C#)
+				选中目录下的prefab生成Lua文件 (原GenUIFromDir(Lua))	UITools/GenUIFromDir(Lua)
+			1.0UI框架生成工具
+				Sort Comfs	Tools/UITool/Sort Comfs
+				Export Template	Tools/UITool/Export Template
+			头像编辑
+				PrefabHead2DCheck	ROTools/HeadIconTools/PrefabHead2DCheck
+				HeadIconEditor	ROTools/HeadIconTools/HeadIconEditor
+			UIChecker
+				检查prefab引用图集 生成UICheck.txt	ROTools/UIChecker
+				检测UI目录Prefab的DropdownEx组件是否为空	ROTools/检测Prefab的正确性
+			字体
+				CustomFontMaker	ROTools/UITools/CustomFontMaker
+			GUI样式查看器	Tools/GUI样式查看器
+			打开TextMeshPro组件查看窗口	Tools/ResTools/EnumTMP
+			UIAutoPosition &9	ROTools/UITools/UIAutoPosition &9
+			UICompare	ROTools/UITools/UICompare
+			快捷添加UI组件名后缀	UITools/后缀快捷添加
+			生成UI文件路径(UIConst.lua)	UITools/导出UI文件路径(UIConst)
+			Prefab Edit Window &W	ROTools/PrefabEditWindow &W
+			打开材质贴图替换窗口 (原UIAtlasReplaceTools)	ROTools/Resource Tools/UIAtlasReplaceTools
+			5个Prefab刷新UIStringLocal	ROTools/FreshData/Fresh UI
+			在当前目录下所有prefab添加FxOne组件	Assets/自动添加组件/在当前目录下所有prefab添加FxOne组件
+			UGUI DrawCall小助手	GameObject/UGUI DrawCall小助手
+			Set All Image NativeSize 	GameObject/SetAllImageNativeSize 
+			打开RO1.5UI工具	GameObject/打开ROUI工具
+		贴图_Shader_材质_模型工具
+			Shader_材质工具集合
+				雾DEBUG #%m	ROTools/Resource Tools/雾DEBUG #%m
+				调整ShaderLOD #%.	ROTools/Resource Tools/调整ShaderLOD #%.
+				快速设置环境 #%,	ROTools/Resource Tools/快速设置环境 #%,
+				设置轮廓Tag #%t	ROTools/Resource Tools/设置轮廓Tag #%t
+				批量格式处理工具	ROTools/Resource Tools/批量格式处理工具
+				合批分组选择器	ROTools/Resource Tools/合批分组选择器
+				查找shader使用关键字 #%k	ROTools/Resource Tools/查找shader使用关键字 #%k
+				更新shaderKeyWord	ROTools/Resource Tools/更新shaderKeyWord
+				获得当前场景资源内存占用量	ROTools/Resource Tools/获得当前场景资源内存占用量
+				网格工具	ROTools/Resource Tools/网格工具
+				重构光照贴图	ROTools/Resource Tools/重构光照贴图
+				遮挡选择器 #%o	ROTools/Resource Tools/遮挡选择器 #%o
+				纹理重构工具 #%`	ROTools/Resource Tools/纹理重构工具 #%`
+				批量重命名 #%r	ROTools/Resource Tools/批量重命名 #%r
+				资源检查工具 #%x	ROTools/Resource Tools/资源检查工具 #%x
+				场景检查工具 #%q	ROTools/Resource Tools/场景检查工具 #%q
+				天气数据工具 #%g	ROTools/Resource Tools/天气数据工具 #%g
+				UI快捷替换 &E	Assets/Resource Tools/UI快捷替换 &E
+				UI快捷替换 &E	ROTools/Resource Tools/UI快捷替换 &E
+				UI快捷面板 #%v	ROTools/Resource Tools/UI快捷面板 #%v
+				导出动画的临时动画文件	ROTools/Resource Tools/导出动画的临时动画文件
+				检查UGUI射线 #%H	ROTools/Resource Tools/检查UGUI射线 #%H
+			TextureFormatSet
+				NPOT mipmap 检查工具	Assets/TextureFormatSet/TextureFormat 检查工具
+				NPOT mipmap 检查工具	ROTools/TextureFormatSet/TextureFormat 检查工具
+				RemoveTextureToIgnoreList(从忽略列表移除)	Assets/TextureFormatSet/RemoveTextureToIgnoreList(从忽略列表移除)
+				RemoveTextureToIgnoreList(从忽略列表移除)	ROTools/TextureFormatSet/RemoveTextureToIgnoreList(从忽略列表移除)
+				OneTextureFormatSet(设置选择贴图Format)	Assets/TextureFormatSet/OneTextureFormatSet(设置选择贴图Format)
+				OneTextureFormatSet(设置选择贴图Format)	ROTools/TextureFormatSet/OneTextureFormatSet(设置选择贴图Format)
+				DirectoryTextureFormatSet(设置文件夹下的所有贴图Format)	Assets/TextureFormatSet/DirectoryTextureFormatSet(设置文件夹下的所有贴图Format)
+				DirectoryTextureFormatSet(设置文件夹下的所有贴图Format)	ROTools/TextureFormatSet/DirectoryTextureFormatSet(设置文件夹下的所有贴图Format)
+				AllTextureFormatSet(全部设置)	Assets/TextureFormatSet/AllTextureFormatSet(全部设置)
+				AllTextureFormatSet(全部设置)	ROTools/TextureFormatSet/AllTextureFormatSet(全部设置)
+				AddTextureToIgnoreList(添加到忽略列表)	Assets/TextureFormatSet/AddTextureToIgnoreList(添加到忽略列表)
+				AddTextureToIgnoreList(添加到忽略列表)	ROTools/TextureFormatSet/AddTextureToIgnoreList(添加到忽略列表)
+			TexturePacker
+				Facing
+					Up	Assets/TexturePacker/Facing/Up
+					Right	Assets/TexturePacker/Facing/Right
+					Left	Assets/TexturePacker/Facing/Left
+					Forward	Assets/TexturePacker/Facing/Forward
+					Down	Assets/TexturePacker/Facing/Down
+					Back	Assets/TexturePacker/Facing/Back
+				Process to Prefabs	Assets/TexturePacker/Process to Prefabs
+				Process to Meshes	Assets/TexturePacker/Process to Meshes
+				Process to Sprites	Assets/TexturePacker/Process to Sprites
+				Process to Sprites	Assets/TexturePacker/Process to Sprites
+				Process to Prefabs	Assets/TexturePacker/Process to Prefabs
+				Process to Meshes	Assets/TexturePacker/Process to Meshes
+				Attach Shadow Mesh	Assets/TexturePacker/Attach Shadow Mesh
+				Attach Shadow Mesh	Assets/TexturePacker/Attach Shadow Mesh
+			图集处理
+				打开分离Alpha窗口 (原Texture Alpha Split) %#Q	Assets/ROTools/图集处理/Texture Alpha Split %#Q
+				打开分离Alpha窗口 (原Texture Alpha Split) %#Q	ROTools/图集处理/Texture Alpha Split %#Q
+				生成选中图集(_UI\\AtlasSource文件夹下图片再处理)	Assets/ROTools/图集处理/生成选中图集
+				生成选中图集(_UI\\AtlasSource文件夹下图片再处理)	ROTools/图集处理/生成选中图集
+				生成所有图集(_UI\\AtlasSource文件夹下图片再处理)	Assets/ROTools/图集处理/生成所有图集
+				生成所有图集(_UI\\AtlasSource文件夹下图片再处理)	ROTools/图集处理/生成所有图集
+				以图片的alpha值覆盖当前图片 (原Texture Alpha Convert)	Assets/ROTools/图集处理/Texture Alpha Convert
+			Export
+				Export all MeshFilters in selection to separate OBJs	Tools/Export/Export all MeshFilters in selection to separate OBJs
+				Export each selected to single OBJ	Tools/Export/Export each selected to single OBJ
+				Export whole selection to single OBJ	Tools/Export/Export whole selection to single OBJ
+			MeshTweaker
+				Rotate
+					Z90	Assets/MeshTweaker/Rotate/Z90
+					Z45	Assets/MeshTweaker/Rotate/Z45
+					Y90	Assets/MeshTweaker/Rotate/Y90
+					Y45	Assets/MeshTweaker/Rotate/Y45
+					X90	Assets/MeshTweaker/Rotate/X90
+					X45	Assets/MeshTweaker/Rotate/X45
+				Align
+					Center	Assets/MeshTweaker/Align/Center
+			生成柏林噪声	ROTools/Other/生成柏林噪声
+			Mesh Baker	Window/Mesh Baker
+			选中图片手动合批 (原Add To Particle Atlas)	Assets/Add To Particle Atlas
+			重新导入fbx (原Reimport all FBX)	Assets/Reimport all FBX
+			清理material中未用到的属性 (原Solve Materials)	Assets/Solve Materials
+			对shader文件加个数，批量重命名	Assets/Shader Version
+			图片处理工具 (原Texture Solver) #%b	Assets/Texture Solver #%b
+			选中模型的Mesh单独导出 (原Extract Mesh)	Assets/Extract Mesh
+			创建图集打包游戏物体ParticleAtlasAssembler (原Particle Atlas)	GameObject/Create Other/Particle Atlas
+			设置文件夹以及子文件夹下面的图片压缩格式为ASTC6x6	Assets/设置文件夹以及子文件夹下面的图片压缩格式为ASTC6x6
+			扫描所有Textures	Tools/扫描所有Textures
+			Open Texturelib Viewer (疑似废弃)	Tools/Open Texturelib Viewer
+			格式化所有Texture	Tools/格式化所有Texture
+			处理所有Model	Tools/处理所有Model
+		本地化工具
+			Helper
+				替换Lua代码中的所有字符占位符	ROTools/Localization/Helper/将Lua代码中的所有字符占位符
+				Create Font Asset	ROTools/Localization/Helper/Create Font Asset
+				Create LangResConfig	ROTools/Localization/Helper/Create LangResConfig
+				批量刷Atlas&Texture本地化组件（定向到中文）	ROTools/Localization/Helper/批量刷Atlas&Texture本地化组件（定向到中文）
+			切换到港澳台	ROTools/Localization/切换到港澳台
+			本地化资源移动 (原MoveLangRes)	Assets/ROTools/Localization/移动资源到语言目录
+			切换到日本	ROTools/Localization/切换到日本
+			切换到韩国	ROTools/Localization/切换到韩国
+			编辑器预览海外资源	ROTools/Localization/预览当前地区资源
+			切换到中国	ROTools/Localization/切换到中国
+			打开翻译流程工具	ROTools/Localization/打开翻译流程工具
+			切换到北美	ROTools/Localization/切换到北美
+			本地化资源移动 (原MoveLangRes)	ROTools/Localization/语言资源工具（移动资源）
+			本地化文本工具	ROTools/Localization/本地化文本工具
+			切换到日本	ROTools/Localization/切换到日本
+			切换到港澳台	ROTools/Localization/切换到港澳台
+			切换到韩国	ROTools/Localization/切换到韩国
+			切换到北美	ROTools/Localization/切换到北美
+			切换到中国	ROTools/Localization/切换到中国
+			[测试用]DebugTool	ROTools/Localization/[测试用]DebugTool
+		第三方插件工具
+			ProGrids
+				Cycle SceneView Projection	Tools/ProGrids/Cycle SceneView Projection
+				Increase Grid Size	Tools/ProGrids/Increase Grid Size
+				Close ProGrids	Tools/ProGrids/Close ProGrids
+				Increase Grid Size	Tools/ProGrids/Increase Grid Size
+				Nudge Perspective Backward	Tools/ProGrids/Nudge Perspective Backward
+				Nudge Perspective Forward	Tools/ProGrids/Nudge Perspective Forward
+				Reset Perspective Nudge	Tools/ProGrids/Reset Perspective Nudge
+				Reset Perspective Nudge	Tools/ProGrids/Reset Perspective Nudge
+				ProGrids Window	Tools/ProGrids/ProGrids Window
+				Nudge Perspective Forward	Tools/ProGrids/Nudge Perspective Forward
+				Nudge Perspective Backward	Tools/ProGrids/Nudge Perspective Backward
+				Cycle SceneView Projection	Tools/ProGrids/Cycle SceneView Projection
+				Decrease Grid Size	Tools/ProGrids/Decrease Grid Size
+				Decrease Grid Size	Tools/ProGrids/Decrease Grid Size
+				Close ProGrids	Tools/ProGrids/Close ProGrids
+				About	Tools/ProGrids/About
+			Cinemachine
+				Create Virtual Camera	Cinemachine/Create Virtual Camera
+				Create Target Group Camera	Cinemachine/Create Target Group Camera
+				Create State-Driven Camera	Cinemachine/Create State-Driven Camera
+				Create Mixing Camera	Cinemachine/Create Mixing Camera
+				Create FreeLook Camera	Cinemachine/Create FreeLook Camera
+				Create Dolly Track with Cart	Cinemachine/Create Dolly Track with Cart
+				Create Dolly Camera with Track	Cinemachine/Create Dolly Camera with Track
+				Create ClearShot Camera	Cinemachine/Create ClearShot Camera
+				Create Blend List Camera	Cinemachine/Create Blend List Camera
+				Create 2D Camera	Cinemachine/Create 2D Camera
+				About	Cinemachine/About
+			Behavior Designer
+				Editor	Tools/Behavior Designer/Editor
+				Global Variables	Tools/Behavior Designer/Global Variables
+				Error List	Tools/Behavior Designer/Error List
+				Welcome Screen	Tools/Behavior Designer/Welcome Screen
+				导出AI节点C++	ROTools/BehaivorTools/导出AI节点C++
+				导出AI节点C#	ROTools/BehaivorTools/导出AI节点C#
+				行为树属性转换	ROTools/BehaivorTools/行为树属性转换
+				批量修改行为树变量类型	ROTools/BehaivorTools/批量修改行为树变量类型
+				导出行为树文件（服务器）	ROTools/BehaivorTools/导出行为树文件（服务器）
+				导出行为树PB文件（客户端）	ROTools/BehaivorTools/导出行为树PB文件（客户端）
+			Odin Inspector
+				Help
+					Report An Issue	Tools/Odin Inspector/Help/Report An Issue
+					Discord	Tools/Odin Inspector/Help/Discord
+					Contact	Tools/Odin Inspector/Help/Contact
+				Static Inspector	Tools/Odin Inspector/Static Inspector
+				Serialization Debugger	Tools/Odin Inspector/Serialization Debugger
+				Preferences	Tools/Odin Inspector/Preferences
+				Scene Validator (Deprecated)	Tools/Odin Inspector/Scene Validator (Deprecated)
+				Release Notes	Tools/Odin Inspector/Release Notes
+				Getting Started	Tools/Odin Inspector/Getting Started
+				Attribute Overview	Tools/Odin Inspector/Attribute Overview
+				About	Tools/Odin Inspector/About
+			Mesh Baker
+				Batch Prefab Baker	GameObject/Create Other/Mesh Baker/Batch Prefab Baker
+				Bone Weight Copier	GameObject/Create Other/Mesh Baker/Bone Weight Copier
+				TextureBaker and MeshBaker	GameObject/Create Other/Mesh Baker/TextureBaker and MeshBaker
+				MeshBaker	GameObject/Create Other/Mesh Baker/MeshBaker
+				TextureBaker and MultiMeshBaker	GameObject/Create Other/Mesh Baker/TextureBaker and MultiMeshBaker
+				TextureBaker	GameObject/Create Other/Mesh Baker/TextureBaker
+			Vertex Tools Pro
+				Vertex Tools Pro #%v	Tools/Vertex Tools Pro/Vertex Tools Pro #%v
+				Vertex Color Animator #%a	Tools/Vertex Tools Pro/Vertex Color Animator #%a
+				SpeedTree Painter (Early Access) #%t	Tools/Vertex Tools Pro/SpeedTree Painter (Early Access) #%t
+			BehaviorTools
+				导出行为树至其他地区
+					香港	Assets/BehaviorTools/导出行为树至其他地区/香港
+					韩国	Assets/BehaviorTools/导出行为树至其他地区/韩国
+					日本	Assets/BehaviorTools/导出行为树至其他地区/日本
+					北美	Assets/BehaviorTools/导出行为树至其他地区/北美
+				导出当前选择的行为树的PB文件（客户端）	Assets/BehaviorTools/导出当前选择的行为树的PB文件（客户端）
+				导出当前选择的行为树（服务器）	Assets/BehaviorTools/导出当前选择的行为树（服务器）
+			EmmyLua
+				Generate Waper API	Tools/EmmyLua/Generate Waper API
+			Simplygon
+				Login	Tools/Simplygon/Login
+			Odin Serializer
+				Refresh Assembly Import Settings	Tools/Odin Serializer/Refresh Assembly Import Settings
+			UnlitWater
+				Create UnlitWater	GameObject/UnlitWater/Create UnlitWater
+			Overdraw Tool	Tools/Overdraw Tool
+			T4M Source Codes %t	Window/T4M Source Codes %t
+			Panorama To Cubemap	Window/Panorama To Cubemap
+			AVPro Video Support	Window/AVPro Video Support
+		动画特效工具
+			动画模型编辑
+				CreateAvatarMask #%&5	ROTools/ModelTools/CreateAvatarMask #%&5
+				Extract Animation Clips(uncompressed)	ROTools/ModelTools/Extract Animation Clips(uncompressed)
+				Extract Animation Clips #%&1	ROTools/ModelTools/Extract Animation Clips #%&1
+				Create Animation Infos	ROTools/ModelTools/Create Animation Infos
+				Extract HeadColorInfo &4	ROTools/ModelTools/Extract HeadColorInfo &4
+				Tools Panel #%e	ROTools/ModelTools/Tools Panel #%e
+				OptmizeAndExport #%&2	ROTools/ModelTools/OptmizeAndExport #%&2
+				SaveSkinAsset #%&3	ROTools/ModelTools/SaveSkinAsset #%&3
+			刷新比心拥抱亲吻动效	ROTools/FreshData/Fresh Double Anim
+			刷新技能动效	ROTools/FreshData/Fresh Skill Anim
+			刷新Story动效	ROTools/FreshData/Fresh Story Anim
+			特效导出工具	Assets/FxTools/FxLodLevel
+			特效导出工具	ROTools/FxTools/FxLodLevel
+			统计特效Prefab写入FxNamePath	ROTools/FxTools/FxNamePath
+			检查Animator的Mesh组件	ROTools/AnimationTools/CheckAnimatorMesh
+			检查Animator的Avatar组件	ROTools/AnimationTools/CheckAnimator
+			测试选中模型，用当前目录的动画进行测试 (原Create Animator Tester)	Assets/Create Animator Tester
+			测试选中特效Overdraw	Assets/特效测试/测试选中特效
+			摄像机看不见时停止动画播放 (原Fast Animator Culling)	Assets/Fast Animator Culling
+			裁剪Animation Clip浮点数	Tools/裁剪Animation Clip浮点数
+			裁剪Animation Clip浮点数 & 去除Scale	Tools/裁剪Animation Clip浮点数 & 去除Scale
+		策划工具
+			表格工具
+				Table Dump
+					Server	ROTools/TableTools/Table Dump/Server
+					Editor	ROTools/TableTools/Table Dump/Editor
+					Client	ROTools/TableTools/Table Dump/Client
+				TaskTableColAdd	ROTools/TableTools/TaskTableColAdd
+				Reload All Table Data	ROTools/TableTools/Reload All Table Data
+				Clean All Table Data	ROTools/TableTools/Clean All Table Data
+				Refresh All Lua	ROTools/TableTools/Refresh All Lua
+				Open TableManager #&T	ROTools/TableTools/Open TableManager #&T
+				Table Exporter	ROTools/TableTools/Table Exporter
+			任务编辑器
+				CutScene编辑器	ROTools/任务编辑器/CutScene编辑器
+				任务编辑器	ROTools/任务编辑器/表格编辑器
+				触发编辑器	ROTools/任务编辑器/触发编辑器
+				捏人编辑器->导出头像预览图	ROTools/任务编辑器/捏人编辑器->导出头像预览图
+				捏人编辑器->导出身体部件预览图	ROTools/任务编辑器/捏人编辑器->导出身体部件预览图
+				捏人编辑器	ROTools/任务编辑器/捏人编辑器
+			SmallGames
+				获得百分比坐标 %&g	ROTools/SmallGames/获得百分比坐标 %&g
+				屏幕坐标转anchoredpos %&h	ROTools/SmallGames/屏幕坐标转anchoredpos %&h
+				小游戏配置工具	ROTools/SmallGames/小游戏配置工具
+			[剧情图鉴]世界地图prefab信息导出	ROTools/Prefab信息导出/[剧情图鉴]世界地图prefab信息导出
+			剧本工具	ROTools/剧本工具
+			编辑弹幕	ROTools/编辑弹幕
+			AlbertTableView	Window/AlbertTableView
+			剧情预览	Window/剧情预览
+			编辑剧情	Window/编辑剧情
+			Generate Server Curve (Selected)	Assets/Generate Server Curve (Selected)
+			Generate Server Curve (All)	Assets/Generate Server Curve (All)
+			Generate Vehicle Path Curve	Assets/Generate Vehicle Path Curve
+			生成C#	Assets/生成C#
+		音效工具
+			FMOD
+				Help
+					Integration Manual	FMOD/Help/Integration Manual
+					API Documentation	FMOD/Help/API Documentation
+					Support Forum	FMOD/Help/Support Forum
+					Revision History	FMOD/Help/Revision History
+				将音频资源长度刷回表格	FMOD/将音频资源长度刷回表格
+				Node Camp	FMOD/Node Camp
+				Open Test Editor	FMOD/Open Test Editor
+				Migration From Legacy Integration	FMOD/Migration From Legacy Integration
+				Refresh Banks  (并刷新资源预览界面的缓存)	FMOD/Refresh Banks  (并刷新资源预览界面的缓存)
+				About Integration	FMOD/About Integration
+				Event Browser	FMOD/Event Browser
+				Find and Replace	FMOD/Find and Replace
+				Edit Settings	FMOD/Edit Settings
+			UIFmodFastSetTools &T	Assets/Resource Tools/UIFmodFastSetTools &T
+			UIFmodFastSetTools &T	ROTools/Resource Tools/UIFmodFastSetTools &T
+		AssetBundle工具
+			ABTools
+				XBuild
+					XBuildEditor	ROTools/ABTools/XBuild/XBuildEditor
+				AssetBundle Detail	ROTools/ABTools/AssetBundle Detail
+				Encrypt AB	ROTools/ABTools/Encrypt AB
+				Build IOS	ROTools/ABTools/Build IOS
+				检查AB冗余	ROTools/ABTools/检查AB冗余
+				Builder Panel &0	ROTools/ABTools/Builder Panel &0
+				Enable Run With Dll	ROTools/ABTools/Enable Run With Dll
+				Build Android	ROTools/ABTools/Build Android
+			PC包
+				编译PC包DLL(需要配置msbuild+代码权限)	ROTools/ABTools/PC包/编译PC包DLL(需要配置msbuild+代码权限)
+				打PC包	ROTools/ABTools/PC包/打PC包
+				打PC包+编译dll(需要配置msbuild+代码权限)	ROTools/ABTools/PC包/打PC包+编译dll(需要配置msbuild+代码权限)
+			RoabInfoTool	Tools/ResTools/RoabInfoTool
+	Lua
+		lua 脚本加密
+			EncryLuaFileAndSendToMuMu	ROTools/LuaTools/EncryLuaFileAndSendToMuMu
+			TestLuaTool	ROTools/LuaTools/TestLuaTool
+			EncryLuaZip	ROTools/LuaTools/EncryLuaZip
+			EncryLuaFile	ROTools/LuaTools/EncryLuaFile
+		LuaTools
+			Lua Profiler
+				Attach Lua Profiler	LuaTools/Lua Profiler/Attach Lua Profiler
+				Detach Lua Profiler	LuaTools/Lua Profiler/Detach Lua Profiler
+			Lua Memory Tools
+				Snap Memory	LuaTools/Lua Memory Tools/Snap Memory
+			Lua Coverage	LuaTools/Lua Coverage
+			LuaFast 便捷测试	LuaTools/LuaFast 便捷测试
+		Lua Profiler Window	Window/Lua Profiler Window
+	战斗编辑工具
+		场景工具
+			SceneTools
+				SaveActiveSceneSVC	ROTools/SceneTools/SaveActiveSceneSVC
+				整理场景中触发器数据	ROTools/SceneTools/整理场景中触发器数据
+				快速创建改变视角碰撞体 #x	ROTools/SceneTools/快速创建改变视角碰撞体 #x
+				批量发布设置运行时场景	ROTools/SceneTools/批量发布设置运行时场景
+				批量发布设置美术编辑场景	ROTools/SceneTools/批量发布设置美术编辑场景
+				HeightMapEditor	ROTools/SceneTools/HeightMapEditor
+				Map Editor	ROTools/SceneTools/Map Editor
+				Rush SceneEditor Xml	ROTools/SceneTools/Rush SceneEditor Xml
+				Rush SceneEditor Xml By SceneTable	ROTools/SceneTools/Rush SceneEditor Xml By SceneTable
+				BakePanel  #%&B	BakePanel  #%&B
+				Load #%;	ROTools/SceneTools/Load #%;
+				TerrianEditor	ROTools/SceneTools/TerrianEditor
+				生成场景预制体	ROTools/SceneTools/生成场景预制体
+				GrassEditor	ROTools/SceneTools/GrassEditor
+				TriangleCount	ROTools/SceneTools/TriangleCount
+				刷新场景到EditorBuildSetting	ROTools/SceneTools/刷新场景到EditorBuildSetting
+				Pause %x	ROTools/SceneTools/Pause %x
+			AutoLOD
+				Remove LODs	Assets/AutoLOD/Remove LODs
+				Generate LOD	Assets/AutoLOD/Generate LOD
+				Grid Placement Utility	GameObject/AutoLOD/Grid Placement Utility
+				Generate LODs (Prefabs and Scene GameObjects)	GameObject/AutoLOD/Generate LODs (Prefabs and Scene GameObjects)
+				Remove LODs	Assets/AutoLOD/Remove LODs
+				Generate LOD	Assets/AutoLOD/Generate LOD
+				Remove Children LODGroups	GameObject/AutoLOD/Remove Children LODGroups
+				Generate LODs (Prefabs and Scene GameObjects)	GameObject/AutoLOD/Generate LODs (Prefabs and Scene GameObjects)
+			SceneTriggerObject
+				添加方块形触发器对象	Window/SceneTriggerObject/添加方块形触发器对象
+				添加球形触发器对象	Window/SceneTriggerObject/添加球形触发器对象
+			SceneEditor
+				添加一个模板项	GameObject/SceneEditor/添加一个模板项
+				将此对象设置为模板	GameObject/SceneEditor/将此对象设置为模板
+			切换场景
+				Open Pre Scene %&g	ROTools/Other/Open Pre Scene %&g
+				Open Game Scene %g	ROTools/Other/Open Game Scene %g
+			SimpleLOD	Tools/SimpleLOD
+			带值拷贝	GameObject/带值拷贝
+			场景节点按材质->网格方式重命名及排序	GameObject/场景节点按材质->网格方式重命名及排序
+			场景交互物件	GameObject/SceneTool/场景交互物件
+			ProcessCurSceneLODGroup	Tools/ProcessCurSceneLODGroup
+			SimpleLOD	Tools/SimpleLOD
+			Fresh Scene Prefab生成bytes	ROTools/FreshData/Fresh Scene Prefab
+			各场景NPC波利信息	ROTools/BoliGroupPosTool
+			OpenSceneEditor	ROTools/OpenSceneEditor
+			任务镜头参数工具	Window/任务镜头参数工具
+			SceneSelectionFilter	Window/SceneSelectionFilter
+			Update Scene with Prefab Lightmaps	Assets/Update Scene with Prefab Lightmaps
+			Bake Prefab Lightmaps	Assets/Bake Prefab Lightmaps
+			Auto Light Probe Group	GameObject/Auto Light Probe Group
+			Light Beam	GameObject/Create Other/Light Beam
+		SkillTools
+			Select Hoster #`	ROTools/SkillTools/Select Hoster #`
+			Create Color Palette	Assets/ROTools/SkillTools/Create Color Palette
+			Generate All Bytes	ROTools/SkillTools/Generate All Bytes
+			Create Curve	Assets/ROTools/SkillTools/Create Curve
+			Create Skill %i	ROTools/SkillTools/Create Skill %i
+			GotoBandpose or Back to anim #F1	ROTools/SkillTools/GotoBandpose or Back to anim #F1
+			Copy Male To Female %&i	ROTools/SkillTools/Copy Male To Female %&i
+			MSkillFxCg &x	Window/SkillTools/MSkillFxCg &x
+			Create Color SkillRim	Assets/ROTools/SkillTools/Create Color SkillRim
+		Neo 编辑器
+			打开技能编辑器	Neo编辑器/打开技能编辑器
+			打开数据编辑器	Neo编辑器/打开数据编辑器
