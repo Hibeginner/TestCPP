@@ -21,6 +21,9 @@ public:
 	Point(Point && tempP) noexcept;
 	~Point();
 
+	void *operator new(size_t size);
+	void *operator new(size_t size, std::nothrow_t &);
+
 	int x;
 	int y;
 

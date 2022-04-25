@@ -45,3 +45,13 @@ Point::~Point() {
 	this->x = 0;
 	this->y = 0;
 }
+
+void *Point::operator new(size_t size)
+{
+	return malloc(size);
+}
+
+void *Point::operator new(size_t size, std::nothrow_t & noThrow)
+{
+	return malloc(size);
+}
