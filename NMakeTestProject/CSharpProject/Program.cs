@@ -1,4 +1,5 @@
 ﻿using System;
+using DependentProject;
 
 namespace CSharpProject
 {
@@ -7,6 +8,9 @@ namespace CSharpProject
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            DependentProject.Tools tools = new DependentProject.Tools();
+            tools.name = "Test Tool";
+            tools.sayName();
         }
     }
 }
