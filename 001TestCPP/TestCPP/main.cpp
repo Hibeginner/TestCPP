@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <map>
 #include <functional>
+#include <vector>
 using namespace std;
 
 #ifndef TEST_MULTI_INCLUDE
@@ -88,6 +89,20 @@ union testUnion
 	Point pointValue;
 };
 
+void testVectorReallocation()
+{
+	std::vector<Point> pointVec;
+	for (int i = 0; i < 2; i++)
+	{
+		pointVec.emplace_back(i, i);
+	}
+
+	for (int i = 2; i < 12; i++)
+	{
+		pointVec.emplace_back(i, i);//扩容的时候，调用的move语义
+	}
+}
+
 int main(void) {
 	//testUnion aUnion = {2};//因为point定义了自己的构造函数或析构函数，所以无法实例化这个union。除非这个union定义自己的构造和析构函数。可以理解为point在union里是以指针形式存在的，编译器无法自动析构它。（我觉得编译器还能再优化一下）
 	//ChildTestClass childTestClass;
@@ -109,6 +124,8 @@ int main(void) {
 	/*TestClass *testClass = dynamic_cast<TestClass *>(&childTestClass);
 	ChildTestClass *childTestClassPtr = dynamic_cast<ChildTestClass *>(testClass);
 	childTestClassPtr->saySomething();//调用子类的*/
+
+	testVectorReallocation();
 
 	//const std::shared_ptr<TestClass> &baseClassSharedPtrRef = std::make_shared<ChildTestClass>();
 	size_t childTestClassSize = sizeof(ChildTestClass);
