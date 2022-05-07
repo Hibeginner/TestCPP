@@ -149,6 +149,9 @@
     <ClInclude Include="CountDownSyncTool.h" />
     <ClInclude Include="WorkThread.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="StandaloneServer.Build.cs" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

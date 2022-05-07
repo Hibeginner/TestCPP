@@ -17,4 +17,7 @@
     <ClInclude Include="WorkThread.h" />
     <ClInclude Include="CountDownSyncTool.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="StandaloneServer.Build.cs" />
+  </ItemGroup>
 </Project>
