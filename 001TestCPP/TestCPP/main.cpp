@@ -2,6 +2,7 @@
 #include "Point.h"
 #include <iostream>
 #include "TestClass.h"
+#include "TemplateTest.h"
 #include <memory>
 #include <stdexcept>
 #include <map>
@@ -103,6 +104,52 @@ void testVectorReallocation()
 	}
 }
 
+const char *getResult()
+{
+	//返回静态字符数组
+	const char *s = "This is a string";//字符串字面量本身应该是const char[]类型，这里是个const char*。字符串字面常量不同于普通的局部变量，具有static duration lifetime,这整个程序的生命周期中都将存在
+	return s;
+}
+
+void showStr(const std::string &str)
+{
+	std::string temp = str;
+	std::cout << "showStr函数中，str地址：" << (void *)str.c_str() << std::endl;
+	std::cout << "showStr函数中，temp地址：" << (void *)temp.c_str() << std::endl;
+}
+
+uint32_t GetHash(const char *str)
+{
+	if (str == NULL)
+	{
+		return 0;
+	}
+
+	uint32_t hash = 0;
+	uint32_t idx = 0;
+	while (*(str + idx) != '\0')
+	{
+		hash = (hash << 5) + hash + str[idx];
+		idx++;
+	}
+	return hash;
+}
+
+struct MyException :public std::exception
+{
+	const char *what() const throw()
+	{
+		return "MyException";
+	}
+};
+
+void testThrowException()
+{
+	int a = 1;
+	throw MyException();
+	int b = 2;
+}
+
 int main(void) {
 	//testUnion aUnion = {2};//因为point定义了自己的构造函数或析构函数，所以无法实例化这个union。除非这个union定义自己的构造和析构函数。可以理解为point在union里是以指针形式存在的，编译器无法自动析构它。（我觉得编译器还能再优化一下）
 	//ChildTestClass childTestClass;
@@ -124,6 +171,40 @@ int main(void) {
 	/*TestClass *testClass = dynamic_cast<TestClass *>(&childTestClass);
 	ChildTestClass *childTestClassPtr = dynamic_cast<ChildTestClass *>(testClass);
 	childTestClassPtr->saySomething();//调用子类的*/
+	int aInt = 2;
+	int *aIntPtrArr[1];
+	int aIntArr[2] = {2,5};
+	aIntPtrArr[0] = &aInt;
+	int **intPtrPtr = aIntPtrArr;
+
+
+	const char *testCharA = getResult();
+	std::cout << "Address is : " << (void *)testCharA << " Value is :" << testCharA << std::endl;
+	const char *testCharB = "This is a string";
+	std::cout << "Address is : " << (void *)testCharB << " Value is :" << testCharB << std::endl;
+
+	std::string testStrA = "This is a string";//std::string会自己new一个char*存放字符。与上面静态字符数组地址不同
+	std::cout << "Address is : " << (void *)testStrA.c_str() << " Value is :" << testStrA << std::endl;
+
+
+	std::string strOnStack = "Hello,World";
+	std::cout << "main函数中，strOnStack地址：" << (void *)strOnStack.c_str() << std::endl;
+	showStr(strOnStack);
+
+	showStr("Hello,World");
+	const char charArr[] = "Hello,World";
+	std::cout << "main函数中，charArr地址：" << (void *)&charArr[0] << std::endl;
+	showStr(charArr);//构造一个临时的std::string作为参数？
+
+	TemplateTest<int> templateTest;
+	templateTest.setValue(5);
+
+	std::plus<int> intPlus = std::plus<int>();
+
+	int multiplyResult = multiply<int, int>(3, 2);
+
+	GetHash("GuildNewsTable");
+
 
 	testVectorReallocation();
 
