@@ -9,58 +9,59 @@ using namespace std;
 void PromptForAddress(tutorial::Person *person)
 {
 	cout << "Enter person ID number: ";
-	int id;
-	cin >> id;
+	int id = 7;
+	//cin >> id;
 	person->set_id(id);
-	cin.ignore(256, '\n');
+	//cin.ignore(256, '\n');
 
 	cout << "Enter name: ";
-	getline(cin, *person->mutable_name());
+	//getline(cin, *person->mutable_name());
+	person->set_name("ab");
 
 	cout << "Enter email address (blank for none): ";
-	string email;
-	getline(cin, email);
+	string email = "12@sina.com";
+	//getline(cin, email);
 	if (!email.empty())
 	{
 		person->set_email(email);
 	}
 
-	while (true)
-	{
-		cout << "Enter a phone number (or leave blank to finish): ";
-		string number;
-		getline(cin, number);
-		if (number.empty())
-		{
-			break;
-		}
-		// £À£À£À Person::PhoneNumber
-		tutorial::Person::PhoneNumber *phone_number = person->add_phones();
-		phone_number->set_number(number);
+	//while (true)
+	//{
+	//	cout << "Enter a phone number (or leave blank to finish): ";
+	//	string number;
+	//	getline(cin, number);
+	//	if (number.empty())
+	//	{
+	//		break;
+	//	}
+	//	// £À£À£À Person::PhoneNumber
+	//	tutorial::Person::PhoneNumber *phone_number = person->add_phones();
+	//	phone_number->set_number(number);
 
-		cout << "Is this a mobile, home, or work phone? ";
-		string type;
-		getline(cin, type);
-		if (type == "mobile")
-		{
-			// £À£À£À Person
-			phone_number->set_type(tutorial::Person::MOBILE);
-		}
-		else if (type == "home")
-		{
-			// £À£À£À Person
-			phone_number->set_type(tutorial::Person::HOME);
-		}
-		else if (type == "work")
-		{
-			// £À£À£À Person
-			phone_number->set_type(tutorial::Person::WORK);
-		}
-		else
-		{
-			cout << "Unknown phone type.  Using default." << endl;
-		}
-	}
+	//	cout << "Is this a mobile, home, or work phone? ";
+	//	string type;
+	//	getline(cin, type);
+	//	if (type == "mobile")
+	//	{
+	//		// £À£À£À Person
+	//		phone_number->set_type(tutorial::Person::MOBILE);
+	//	}
+	//	else if (type == "home")
+	//	{
+	//		// £À£À£À Person
+	//		phone_number->set_type(tutorial::Person::HOME);
+	//	}
+	//	else if (type == "work")
+	//	{
+	//		// £À£À£À Person
+	//		phone_number->set_type(tutorial::Person::WORK);
+	//	}
+	//	else
+	//	{
+	//		cout << "Unknown phone type.  Using default." << endl;
+	//	}
+	//}
 }
 
 int WriteToFile(int argc, char *argv[])
@@ -202,9 +203,11 @@ void TestReflection()
 //   file.
 int main(int argc, char *argv[])
 {
+
 	//WriteToFile(argc, argv);
 	//ReadFromFile(argc, argv);
 	TestReflection();
+
 
 	return 0;
 }

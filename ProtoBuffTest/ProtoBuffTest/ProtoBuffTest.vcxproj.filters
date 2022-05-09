@@ -21,9 +21,15 @@
     <ClCompile Include="address.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FooRequest.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="address.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FooRequest.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
