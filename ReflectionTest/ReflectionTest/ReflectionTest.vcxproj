@@ -139,11 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DynamicReflection.cpp" />
+    <ClCompile Include="ClassReflection.cpp" />
+    <ClCompile Include="ClassReflectionTest.cpp" />
+    <ClCompile Include="DynamicFieldReflection.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="StaticFieldReflection.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DynamicReflection.h" />
+    <ClInclude Include="ClassReflection.h" />
+    <ClInclude Include="ClassReflectionTest.h" />
+    <ClInclude Include="DynamicFieldReflection.h" />
+    <ClInclude Include="StaticFieldReflection.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -186,8 +186,8 @@ int ReadFromFile(int argc, char *argv[])
 //   file.
 int main(int argc, char *argv[])
 {
-	//WriteToFile(argc, argv);
-	ReadFromFile(argc, argv);
+	WriteToFile(argc, argv);
+	//ReadFromFile(argc, argv);
 
 	return 0;
 }

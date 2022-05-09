@@ -18,12 +18,30 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicReflection.cpp">
+    <ClCompile Include="ClassReflection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicFieldReflection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticFieldReflection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassReflectionTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DynamicReflection.h">
+    <ClInclude Include="ClassReflection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicFieldReflection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticFieldReflection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassReflectionTest.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
