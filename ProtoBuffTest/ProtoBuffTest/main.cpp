@@ -181,13 +181,30 @@ int ReadFromFile(int argc, char *argv[])
 	return 0;
 }
 
+void TestReflection()
+{
+	/* 反射创建实例 */
+	auto descriptor = google::protobuf::DescriptorPool::generated_pool()->FindMessageTypeByName("Person");
+	auto prototype = google::protobuf::MessageFactory::generated_factory()->GetPrototype(descriptor);
+	auto instance = prototype->New();
+
+	/* 反射相关接口 */
+	//auto reflecter = instance.GetReflection();
+	//auto field = descriptor->FindFieldByName("name");
+	//reflecter->SetString(&instance, field, "鸡你太美");
+
+	//// 获取属性的值.
+	//std::cout << reflecter->GetString(instance, field) << std::endl;
+}
+
 // Main function:  Reads the entire address book from a file,s
 //   adds one person based on user input, then writes it back out to the same
 //   file.
 int main(int argc, char *argv[])
 {
-	WriteToFile(argc, argv);
+	//WriteToFile(argc, argv);
 	//ReadFromFile(argc, argv);
+	TestReflection();
 
 	return 0;
 }
