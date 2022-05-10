@@ -30,6 +30,12 @@
     <ClCompile Include="ClassReflectionTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MemberFuncReflection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MemberFuncTestClass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassReflection.h">
@@ -42,6 +48,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ClassReflectionTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MemberFuncReflection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MemberFuncTestClass.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

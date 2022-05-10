@@ -150,6 +150,26 @@ void testThrowException()
 	int b = 2;
 }
 
+void testPtrPtr()
+{
+	int aInt = 2;
+	int *aIntPtrArr[1];
+	int aIntArr[2] = { 2,5 };
+	aIntPtrArr[0] = &aInt;
+	int **intPtrPtr = aIntPtrArr;
+}
+
+void testClassField()
+{
+	Point p(3,5);
+	Point *pPtr = &p;
+	char *charPtr = (char *)pPtr;
+	char* yPosPtr = charPtr + 4;//拿到地址偏移
+	int *yIntPtr = (int *)yPosPtr;//偏移后的地址转成指定类型
+	*yIntPtr = 7;//然后设值
+
+}
+
 int main(void) {
 	//testUnion aUnion = {2};//因为point定义了自己的构造函数或析构函数，所以无法实例化这个union。除非这个union定义自己的构造和析构函数。可以理解为point在union里是以指针形式存在的，编译器无法自动析构它。（我觉得编译器还能再优化一下）
 	//ChildTestClass childTestClass;
@@ -171,12 +191,8 @@ int main(void) {
 	/*TestClass *testClass = dynamic_cast<TestClass *>(&childTestClass);
 	ChildTestClass *childTestClassPtr = dynamic_cast<ChildTestClass *>(testClass);
 	childTestClassPtr->saySomething();//调用子类的*/
-	int aInt = 2;
-	int *aIntPtrArr[1];
-	int aIntArr[2] = {2,5};
-	aIntPtrArr[0] = &aInt;
-	int **intPtrPtr = aIntPtrArr;
-
+	testClassField();
+	testPtrPtr();
 
 	const char *testCharA = getResult();
 	std::cout << "Address is : " << (void *)testCharA << " Value is :" << testCharA << std::endl;

@@ -3,11 +3,14 @@
 
 #include "ClassReflection.h"
 
-class A : public Object
+class CustomClassA : public Object
 {
 public:
-	A() {};
-	~A() {};
+	CustomClassA() {};
+	~CustomClassA() {};
+
+	int x;
+	int y;
 
 	ClassInfo *GetClassInfo() const{ 
 		return &m_class_info_;
@@ -15,8 +18,13 @@ public:
 
 	static Object *CreateObject()// 自定义生产函数
 	{
-		return new A;
+		return new CustomClassA;
 	};
+
+	int *GetIntPtr(int a)
+	{
+		return nullptr;
+	}
 
 protected:
 	static ClassInfo m_class_info_;

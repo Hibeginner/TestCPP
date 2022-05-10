@@ -1,6 +1,8 @@
 #include "DynamicFieldReflection.h"
 #include "StaticFieldReflection.h"
 #include "ClassReflectionTest.h"
+#include "MemberFuncTestClass.h"
+
 #include <iostream>
 #include <typeinfo>
 
@@ -32,9 +34,12 @@ void DynamicFieldTest()
 	};
 
 	StructValueConverter<SimpleStruct> converter;
+
 	const bool SimpleStruct:: *testType1 = &SimpleStruct::bool_;
+
 	converter.RegisterField(&SimpleStruct::bool_, "bool",
 		ValueConverter<bool>(bool_converter));
+
 	auto testType2 = &SimpleStruct::int_;
 	converter.RegisterField(&SimpleStruct::int_, "int",
 		ValueConverter<int>(int_converter));
@@ -141,15 +146,64 @@ void StaticFieldTest()
 
 void TestClassReflection()
 {
-	Object *obj = Object::CreateObject("A");
+	Object *obj = Object::CreateObject("CustomClassA");
 	delete obj;
+}
+
+void TestClassField()
+{
+	CustomClassA p;
+	p.x = 3;
+	p.y = 5;
+	CustomClassA *pPtr = &p;
+	char *charPtr = (char *)pPtr;
+	char *yPosPtr = charPtr + 8 + 4;//头上有8个字节，可能是虚表。拿到地址偏移
+	int *yIntPtr = (int *)yPosPtr;//偏移后的地址转成指定类型
+	*yIntPtr = 7;//然后设值
+
+
+	//protobuf取地址偏移的方法，把地址空间0x10的内存，重新解释为类对象，然后取地址，算偏移
+	uint32_t result = static_cast<::uint32_t>(
+		reinterpret_cast<const char *>(&reinterpret_cast<const CustomClassA *>(16)->y)
+		-
+		reinterpret_cast<const char *>(16)
+		);
+
+	const CustomClassA *customClassAPtr1 = reinterpret_cast<const CustomClassA *>(16);
+	const int *mockYIntPtr = &(customClassAPtr1->y);
+	const char* mockYCharPtr = reinterpret_cast<const char *>(mockYIntPtr);
+
+	const char *customClassAPtr2 = reinterpret_cast<const char *>(16);
+	uint32_t calculatedResult = mockYCharPtr - customClassAPtr2;
+}
+
+void TestMemberFuncPtr()
+{
+	int *(CustomClassA:: * memberFuncPtr)(int) = &CustomClassA::GetIntPtr;//成员函数指针
+
+	CustomClassA testA;
+	int *resultPtr = (testA.*memberFuncPtr)(3);
+}
+
+void TestMemberFuncReflection()
+{
+	MemberFuncTestClassA a;
+	std::vector<ClassMethod<MemberFuncTestClassA>> v;
+	v.emplace_back("func", a, &MemberFuncTestClassA::func);
+	v.emplace_back("fun2", a, &MemberFuncTestClassA::fun2);
+	auto rd = v[0].Invoke<double>(5); // you have to specify return type
+	auto ri = v[1].Invoke<int>('a'); // you have to specify return type
+	std::cout << rd << " " << ri << "\n";
 }
 
 int main()
 {
 	//DynamicFieldTest();
 	//StaticFieldTest();
-	TestClassReflection();
+	//TestClassReflection();
+	TestClassField();
+	//TestMemberFuncPtr();
+	//TestMemberFuncReflection();
 
     return 0;
 }
