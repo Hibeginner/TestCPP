@@ -170,15 +170,16 @@ void testClassField()
 
 }
 
-int main(void) {
+void TestInherit()
+{
 	//testUnion aUnion = {2};//因为point定义了自己的构造函数或析构函数，所以无法实例化这个union。除非这个union定义自己的构造和析构函数。可以理解为point在union里是以指针形式存在的，编译器无法自动析构它。（我觉得编译器还能再优化一下）
-	//ChildTestClass childTestClass;
-	//childTestClass.saySomething();
-	//childTestClass.notOverrideFunc();
+	ChildTestClass childTestClass;
+	childTestClass.saySomething();
+	childTestClass.notOverrideFunc();
 
-	//TestClass *testClassPtr = &childTestClass;
-	//testClassPtr->saySomething();
-	//testClassPtr->notOverrideFunc();//调用父类的
+	TestClass *testClassPtr = &childTestClass;
+	testClassPtr->saySomething();
+	testClassPtr->notOverrideFunc();//调用父类的
 
 	/*TestClass testClass = static_cast<TestClass>(childTestClass);
 	testClass.saySomething();//强制类型转换后，调用父类的*/
@@ -191,9 +192,17 @@ int main(void) {
 	/*TestClass *testClass = dynamic_cast<TestClass *>(&childTestClass);
 	ChildTestClass *childTestClassPtr = dynamic_cast<ChildTestClass *>(testClass);
 	childTestClassPtr->saySomething();//调用子类的*/
-	testClassField();
-	testPtrPtr();
 
+	//const std::shared_ptr<TestClass> &baseClassSharedPtrRef = std::make_shared<ChildTestClass>();
+	size_t childTestClassSize = sizeof(ChildTestClass);
+	std::shared_ptr<ChildTestClass> sharedP(new ChildTestClass);
+	processSharedPtr(sharedP);
+
+	TestClassB *parentPtr = new ChildTestClassB(1);
+}
+
+void TestString()
+{
 	const char *testCharA = getResult();
 	std::cout << "Address is : " << (void *)testCharA << " Value is :" << testCharA << std::endl;
 	const char *testCharB = "This is a string";
@@ -211,23 +220,38 @@ int main(void) {
 	const char charArr[] = "Hello,World";
 	std::cout << "main函数中，charArr地址：" << (void *)&charArr[0] << std::endl;
 	showStr(charArr);//构造一个临时的std::string作为参数？
+}
 
+void TestTemplate()
+{
 	TemplateTest<int> templateTest;
 	templateTest.setValue(5);
 
 	std::plus<int> intPlus = std::plus<int>();
 
 	int multiplyResult = multiply<int, int>(3, 2);
+}
+
+void TestVariableParameter()
+{
+	printList(1, "3", 4, "kkk");
+}
+
+int main(void) {
+	TestVariableParameter();
+	TestInherit();
+	testClassField();
+	testPtrPtr();
+	TestString();
+	TestTemplate();
+
+	
 
 	GetHash("GuildNewsTable");
 
 
 	testVectorReallocation();
 
-	//const std::shared_ptr<TestClass> &baseClassSharedPtrRef = std::make_shared<ChildTestClass>();
-	size_t childTestClassSize = sizeof(ChildTestClass);
-	std::shared_ptr<ChildTestClass> sharedP(new ChildTestClass);
-	processSharedPtr(sharedP);
 
 	const std::shared_ptr<TestClass> &baseClassSharedPtrRef = std::make_shared<ChildTestClass>();
 

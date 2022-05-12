@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 template <typename T>
 T compare(const T &a, const T &b)
@@ -41,4 +42,18 @@ template <typename _Tx, typename _Ty>
 auto multiply(_Tx x, _Ty y)->decltype(x *y)
 {
 	return x * y;
+}
+
+
+template<typename FirstType>
+void printList(const FirstType &firstParam)
+{
+	std::cout << firstParam << std::endl;
+}
+
+template<typename FirstType, typename... OtherType> //typename...三个点代表，OtherType是模板参数包
+void printList(const FirstType &firstParam, const OtherType&... otherParam) //OtherType&...三个点代表，otherParam是函数参数包
+{
+	std::cout << firstParam << std::endl;
+	printList(otherParam...);//包展开
 }

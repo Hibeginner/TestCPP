@@ -35,7 +35,7 @@ public:
 	{
 		ReturnType(T:: * funcionPointer)(Args...) = reinterpret_cast<ReturnType(T:: *)(Args...)>(methodAddress);
 		// forward arguments
-		return (targetClass.*funcionPointer)(std::forward<Args...>(args)...);
+		return (targetClass.*funcionPointer)(std::forward<Args...>(args)...);//这个模板转发不了std::string类型。为什么？
 		// when targetClass is a pointer, then
 		// `*targetClass.*funcionPointer` is equal to `*(targetClass.*funcionPointer)` !!
 		// you want `((*targetClass).*functionPointer)` or just `targetClass->*funcionPointer

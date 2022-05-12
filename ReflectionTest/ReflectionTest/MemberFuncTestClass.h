@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 struct MemberFuncTestClassA
 {
@@ -16,4 +17,10 @@ struct MemberFuncTestClassA
 		std::cout << "fun2('" << b << "') ";
 		return 50;
 	}
+
+	/*std::string fun3(const std::string& prefix)
+	{
+		std::string tempStr = prefix + std::string("cde");
+		return tempStr;
+	}*/
 };

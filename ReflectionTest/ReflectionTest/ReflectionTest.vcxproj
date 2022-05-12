@@ -145,6 +145,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MemberFuncReflection.cpp" />
     <ClCompile Include="MemberFuncTestClass.cpp" />
+    <ClCompile Include="ReflectonTool\ClassFieldReflectionInfo.cpp" />
+    <ClCompile Include="ReflectonTool\ClassFunctionReflectionInfo.cpp" />
+    <ClCompile Include="ReflectonTool\ClassObjectReflectionBaseObj.cpp" />
+    <ClCompile Include="ReflectonTool\ClassObjectReflectionClassInfo.cpp" />
+    <ClCompile Include="ReflectonTool\SelfReflectionTestClass.cpp" />
     <ClCompile Include="StaticFieldReflection.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +158,11 @@
     <ClInclude Include="DynamicFieldReflection.h" />
     <ClInclude Include="MemberFuncReflection.h" />
     <ClInclude Include="MemberFuncTestClass.h" />
+    <ClInclude Include="ReflectonTool\ClassFieldReflectionInfo.h" />
+    <ClInclude Include="ReflectonTool\ClassFunctionReflectionInfo.h" />
+    <ClInclude Include="ReflectonTool\ClassObjectReflectionBaseObj.h" />
+    <ClInclude Include="ReflectonTool\ClassObjectReflectionClassInfo.h" />
+    <ClInclude Include="ReflectonTool\SelfReflectionTestClass.h" />
     <ClInclude Include="StaticFieldReflection.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

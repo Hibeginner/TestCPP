@@ -3,6 +3,11 @@
 #include "ClassReflectionTest.h"
 #include "MemberFuncTestClass.h"
 
+#include "ReflectonTool/ClassObjectReflectionBaseObj.h"
+#include "ReflectonTool/ClassFieldReflectionInfo.h"
+#include "ReflectonTool/SelfReflectionTestClass.h"
+#include "ReflectonTool/ClassFunctionReflectionInfo.h"
+
 #include <iostream>
 #include <typeinfo>
 
@@ -36,21 +41,16 @@ void DynamicFieldTest()
 	StructValueConverter<SimpleStruct> converter;
 
 	const bool SimpleStruct:: *testType1 = &SimpleStruct::bool_;
-
-	converter.RegisterField(&SimpleStruct::bool_, "bool",
-		ValueConverter<bool>(bool_converter));
+	converter.RegisterField(&SimpleStruct::bool_, "bool", ValueConverter<bool>(bool_converter));
 
 	auto testType2 = &SimpleStruct::int_;
-	converter.RegisterField(&SimpleStruct::int_, "int",
-		ValueConverter<int>(int_converter));
+	converter.RegisterField(&SimpleStruct::int_, "int", ValueConverter<int>(int_converter));
+
 	auto testType3 = &SimpleStruct::double_;
-	converter.RegisterField(&SimpleStruct::double_, "double",
-		ValueConverter<double>(double_converter));
+	converter.RegisterField(&SimpleStruct::double_, "double", ValueConverter<double>(double_converter));
+
 	auto testType4 = &SimpleStruct::string_;
-
-
-	converter.RegisterField(&SimpleStruct::string_, "string",
-		ValueConverter<std::string>(string_converter));
+	converter.RegisterField(&SimpleStruct::string_, "string", ValueConverter<std::string>(string_converter));
 
 	SimpleStruct simple{ true, 2, 2.0, "hello dynamic reflection" };
 	converter(&simple);
@@ -196,14 +196,48 @@ void TestMemberFuncReflection()
 	std::cout << rd << " " << ri << "\n";
 }
 
+void TestSelfReflection()
+{
+	/*类反射*/
+	ClassFieldReflectionInfo<SelfReflectionTestClass> fieldInfo;
+	fieldInfo.RegistField("intValue", &SelfReflectionTestClass::intValue);
+	fieldInfo.RegistField("strValue", &SelfReflectionTestClass::strValue);
+	
+	ClassObjectReflectionBaseObj* instance = ClassObjectReflectionBaseObj::CreateObject("SelfReflectionTestClass");
+
+	SelfReflectionTestClass *childPtr = dynamic_cast<SelfReflectionTestClass *>(instance);
+
+
+	/*类数据成员反射*/
+	fieldInfo.SetFieldValue(childPtr, "intValue", 6);
+	fieldInfo.SetFieldValue(childPtr, "strValue", std::string("abc"));//用属性偏移会更方便一些
+
+	const char * typeChar = fieldInfo.GetFieldTypeByName("intValue");//用处可能就是把这个字符串显示在某个地方去
+	
+	std::string value = fieldInfo.GetFieldValue<std::string>(childPtr, "strValue");//get value接口。还是要指定返回值类型。用属性偏移会更方便一些
+
+
+	/*类成员函数反射*/
+	ClassFunctionReflectionInfo<SelfReflectionTestClass> functionInfo("GetAString", &SelfReflectionTestClass::GetAString);
+	auto result = functionInfo.Invoke<std::string, const std::string &>(childPtr, std::string("kk"));//这里要指定返回值类型与入参类型。不灵活。UE用C#写的一套分析cpp文件生成反射信息还是有必要的
+
+	auto funcPtr = &SelfReflectionTestClass::GetAString;//记一个函数指针和类的映射会更直接吧
+	auto result1 = (childPtr->*funcPtr)(std::string("mm"));
+	std::unordered_map<std::string, decltype(&SelfReflectionTestClass::GetAString)> funcPtrMap;
+	funcPtrMap.emplace("SelfReflectionTestClass::GetAString", funcPtr);
+	auto funcPtrInMap = funcPtrMap["SelfReflectionTestClass::GetAString"];
+	auto result2 = (childPtr->*funcPtrInMap)(std::string("pp"));//根据类对象，从指针map里拿。但是仍然要提供返回值类型和入参类型
+}
+
 int main()
 {
 	//DynamicFieldTest();
 	//StaticFieldTest();
 	//TestClassReflection();
-	TestClassField();
+	//TestClassField();
 	//TestMemberFuncPtr();
 	//TestMemberFuncReflection();
+	TestSelfReflection();
 
     return 0;
 }

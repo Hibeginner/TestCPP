@@ -39,3 +39,15 @@ void ChildTestClass::notOverrideFunc()
 //{
 //	return malloc(size);
 //}
+
+TestClassB::TestClassB()
+{
+}
+
+TestClassB::~TestClassB()
+{
+}
+
+ChildTestClassB::ChildTestClassB(int a)
+{
+}

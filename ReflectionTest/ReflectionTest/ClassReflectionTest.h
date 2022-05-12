@@ -6,7 +6,7 @@
 class CustomClassA : public Object
 {
 public:
-	CustomClassA() {};
+	CustomClassA();
 	~CustomClassA() {};
 
 	int x;
@@ -29,8 +29,5 @@ public:
 protected:
 	static ClassInfo m_class_info_;
 };
-
-
-
 
 #endif

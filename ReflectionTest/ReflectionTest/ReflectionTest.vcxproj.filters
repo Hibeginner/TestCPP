@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ReflectonTool">
+      <UniqueIdentifier>{01877f54-ffe6-4c8e-829a-71cedcf085c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,6 +39,21 @@
     <ClCompile Include="MemberFuncTestClass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ReflectonTool\ClassObjectReflectionBaseObj.cpp">
+      <Filter>ReflectonTool</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectonTool\ClassObjectReflectionClassInfo.cpp">
+      <Filter>ReflectonTool</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectonTool\SelfReflectionTestClass.cpp">
+      <Filter>ReflectonTool</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectonTool\ClassFieldReflectionInfo.cpp">
+      <Filter>ReflectonTool</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectonTool\ClassFunctionReflectionInfo.cpp">
+      <Filter>ReflectonTool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassReflection.h">
@@ -55,6 +73,21 @@
     </ClInclude>
     <ClInclude Include="MemberFuncTestClass.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectonTool\ClassObjectReflectionBaseObj.h">
+      <Filter>ReflectonTool</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectonTool\ClassObjectReflectionClassInfo.h">
+      <Filter>ReflectonTool</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectonTool\SelfReflectionTestClass.h">
+      <Filter>ReflectonTool</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectonTool\ClassFieldReflectionInfo.h">
+      <Filter>ReflectonTool</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectonTool\ClassFunctionReflectionInfo.h">
+      <Filter>ReflectonTool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
