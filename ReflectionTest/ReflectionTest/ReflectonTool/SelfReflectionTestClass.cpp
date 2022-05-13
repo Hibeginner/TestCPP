@@ -13,7 +13,7 @@ ClassObjectReflectionBaseObj *SelfReflectionTestClass::CreateObject()
 
 std::string SelfReflectionTestClass::GetAString(const std::string& prefix)
 {
-std::string tempStr = prefix + std::string("cde");
+	std::string tempStr = prefix + std::string("cde");
 	return tempStr;
 }
 

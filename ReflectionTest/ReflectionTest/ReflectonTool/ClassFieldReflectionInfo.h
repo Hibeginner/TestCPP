@@ -69,7 +69,7 @@ public:
 
 	const char * GetFieldTypeByName(const std::string fieldName);
 private:
-	std::unordered_map<std::string, std::unique_ptr<ClassFieldContainerBase<ClassType>>> _filedMap;//std::unique_ptr方便多态
+	std::unordered_map<std::string, std::unique_ptr<ClassFieldContainerBase<ClassType>>> _filedMap;//std::unique_ptr方便多
 };
 
 template<typename ClassType>

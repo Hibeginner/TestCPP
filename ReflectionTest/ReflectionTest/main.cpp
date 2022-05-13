@@ -218,8 +218,12 @@ void TestSelfReflection()
 
 
 	/*类成员函数反射*/
-	ClassFunctionReflectionInfo<SelfReflectionTestClass> functionInfo("GetAString", &SelfReflectionTestClass::GetAString);
-	auto result = functionInfo.Invoke<std::string, const std::string &>(childPtr, std::string("kk"));//这里要指定返回值类型与入参类型。不灵活。UE用C#写的一套分析cpp文件生成反射信息还是有必要的
+	//ClassFunctionReflectionInfo<SelfReflectionTestClass> functionInfo("GetAString", &SelfReflectionTestClass::GetAString);
+	//auto result = functionInfo.Invoke<std::string, const std::string &>(childPtr, std::string("kk"));//这里要指定返回值类型与入参类型。不灵活。UE用C#写的一套分析cpp文件生成反射信息还是有必要的
+	ClassFunctionReflectionInfo<SelfReflectionTestClass> functionInfo;
+	functionInfo.RegistFunction("GetAString", &SelfReflectionTestClass::GetAString);
+	auto result = functionInfo.Invoke<std::string, const std::string &>(childPtr, "GetAString", std::string("kk"));
+
 
 	auto funcPtr = &SelfReflectionTestClass::GetAString;//记一个函数指针和类的映射会更直接吧
 	auto result1 = (childPtr->*funcPtr)(std::string("mm"));
