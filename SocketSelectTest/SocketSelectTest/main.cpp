@@ -28,7 +28,7 @@ int main(int argc, char **args)
 	local.sin_addr.S_un.S_addr = htonl(INADDR_LOOPBACK);
 	local.sin_family = AF_INET;
 	local.sin_port = htons(PORT);
-	bind(sListen, (struct sockaddr *)&local, sizeof(SOCKADDR_IN));// Bind
+	int ret = bind(sListen, (struct sockaddr *)&local, sizeof(SOCKADDR_IN));// Bind
 	listen(sListen, 3);// Listen
 	std::cout << "*****Listen Socket FD: " << sListen << std::endl;
 
