@@ -1,5 +1,6 @@
 #include "UnityEditorMappingGenerator.h"
 #include "FolderViewGenerator.h"
+#include "ShowExeDependentDLL.h"
 
 using namespace std;
 
@@ -20,8 +21,7 @@ bool less_second(const myclass &m1, const myclass &m2)
 	return m1.second < m2.second;
 }
 
-
-int main(int argc, const char *argv[])
+void GenerateFoldView(int argc, const char *argv[])
 {
 	vector< myclass > vect;
 	for (int i = 0; i < 10; i++)
@@ -45,6 +45,20 @@ int main(int argc, const char *argv[])
 
 	FolderViewGenerator folderViewGenerator(argc, argv);
 	folderViewGenerator.doGenerate();
+}
 
+void ShowExeUsingDll()
+{
+	ShowExeDependentDLL shower;
+	shower.AdjustProcessTokenPrivilege();
+	//tasklist
+	DWORD processID(17784);//微信小程序的framework进程
+	shower.show(processID);
+}
+
+int main(int argc, const char *argv[])
+{
+	//GenerateFoldView(argc, argv);
+	ShowExeUsingDll();
 	return 0;
 }

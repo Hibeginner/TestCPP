@@ -143,6 +143,7 @@
     <ClCompile Include="FileWriter.cpp" />
     <ClCompile Include="FolderViewGenerator.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ShowExeDependentDLL.cpp" />
     <ClCompile Include="TabData.cpp" />
     <ClCompile Include="UnityEditorMappingGenerator.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="FileWriter.h" />
     <ClInclude Include="FolderViewGenerator.h" />
+    <ClInclude Include="ShowExeDependentDLL.h" />
     <ClInclude Include="TabData.h" />
     <ClInclude Include="UnityEditorMappingGenerator.h" />
   </ItemGroup>
