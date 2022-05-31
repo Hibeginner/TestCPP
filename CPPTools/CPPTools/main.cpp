@@ -47,18 +47,35 @@ void GenerateFoldView(int argc, const char *argv[])
 	folderViewGenerator.doGenerate();
 }
 
-void ShowExeUsingDll()
+void ShowExeUsingDll(int argc, const char *argv[])
 {
+	if (argc < 2)
+	{
+		return;
+	}
+	const char *processChar = nullptr;
+	for (int i = 0; i < argc; i++)
+	{
+		const char *tempArg = argv[i];
+		std::cout << tempArg << std::endl;
+		if (i == 1)
+		{
+			processChar = tempArg;
+		}
+	}
+
 	ShowExeDependentDLL shower;
 	shower.AdjustProcessTokenPrivilege();
-	//tasklist
-	DWORD processID(17784);//微信小程序的framework进程
+	
+	char *pEnd;
+	DWORD processID(25888);//微信小程序的framework进程
+	processID = strtoul(processChar, &pEnd, 10);
 	shower.show(processID);
 }
 
 int main(int argc, const char *argv[])
 {
 	//GenerateFoldView(argc, argv);
-	ShowExeUsingDll();
+	ShowExeUsingDll(argc, argv);
 	return 0;
 }

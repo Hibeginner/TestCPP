@@ -222,6 +222,8 @@ void TestString()
 	showStr(charArr);//构造一个临时的std::string作为参数？
 }
 
+template class TemplateTest<bool>;//定义特化版本
+
 void TestTemplate()
 {
 	TemplateTest<int> templateTest;
@@ -230,6 +232,9 @@ void TestTemplate()
 	std::plus<int> intPlus = std::plus<int>();
 
 	int multiplyResult = multiply<int, int>(3, 2);
+
+	TemplateTest<bool> boolTemplateTest;
+	boolTemplateTest.setValue(true);
 }
 
 void TestVariableParameter()
