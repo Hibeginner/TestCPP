@@ -237,7 +237,37 @@ void TestVariableParameter()
 	printList(1, "3", 4, "kkk");
 }
 
+void TestCharsetInMemory()
+{
+	char *charPtr = "根";//内存中，gbk
+	for (const char *ptr = charPtr; *ptr != 0; ptr++)
+	{
+		std::cout << "charset value：" << *ptr << std::endl;
+	}
+
+	wchar_t *wideCharPtr = L"根";//内存中，Windows是Unicode小端，即UTF-16LE。硬盘上是UTF8字节流存放E6A0B9
+	const char *wcharPtrRef = (char *)wideCharPtr;
+	for (const char *ptr = wcharPtrRef; *ptr != 0; ptr++)
+	{
+		std::cout << "charset value：" << *ptr << std::endl;
+	}
+}
+
+void TestCPUEndian(void)
+{
+	union
+	{
+		int a;
+		char b;
+	}c;
+	c.a = 1;
+	int realInt = 1;
+	bool result = (c.b == 1);//true 小端模式，低地址放低位
+}
+
 int main(void) {
+	TestCPUEndian();
+	TestCharsetInMemory();
 	TestVariableParameter();
 	TestInherit();
 	testClassField();
