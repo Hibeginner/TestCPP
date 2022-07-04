@@ -57,3 +57,4 @@ void printList(const FirstType &firstParam, const OtherType&... otherParam) //Ot
 	std::cout << firstParam << std::endl;
 	printList(otherParam...);//°üÕ¹¿ª
 }
+

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <iostream>
 
-#define PORT 5150
+#define PORT 8082
 #define MSGSIZE 1024
 
 #pragma comment(lib, "ws2_32.lib")
@@ -13,26 +13,51 @@ int g_iTotalConn = 0;
 SOCKET g_ClientSocketArr[FD_SETSIZE];
 DWORD WINAPI WorkerThread(LPVOID lpParameter);
 
+void GetSocketOpt(SOCKET fd)
+{
+	int optVal;
+	int optLen = sizeof(int);
+	int result = getsockopt(fd, SOL_SOCKET, TCP_NODELAY, (char *)&optVal, &optLen);
+	if (result != SOCKET_ERROR)
+	{
+		int a = 1;
+	}
+}
+
+void SetSocketOpt(SOCKET fd)
+{
+	int optVal = 1;
+	int optLen = sizeof(int);
+	int result = setsockopt(fd, SOL_SOCKET, TCP_NODELAY, (char *)&optVal, optLen);
+	if (result != SOCKET_ERROR)
+	{
+		int a = 1;
+	}
+}
+
 int main(int argc, char **args)
 {
 	WSADATA wsaData;
-	SOCKET sListen;
-	SOCKET sClient;
+	SOCKET sListenFD;
+	SOCKET connectedFD;
 	SOCKADDR_IN local;
 	SOCKADDR_IN client;
 	int iaddrSize = sizeof(SOCKADDR_IN);
 	DWORD dwThreadId;
 
 	WSAStartup(0x0202, &wsaData);// Initialize Windows socket library
-	sListen = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);// Create listening socket
+	sListenFD = socket(AF_INET, SOCK_STREAM, 0);// Create listening socket
 	local.sin_addr.S_un.S_addr = htonl(INADDR_LOOPBACK);
 	local.sin_family = AF_INET;
 	local.sin_port = htons(PORT);
-	int ret = bind(sListen, (struct sockaddr *)&local, sizeof(SOCKADDR_IN));// Bind
-	listen(sListen, 3);// Listen
-	std::cout << "*****Listen Socket FD: " << sListen << std::endl;
+	int ret = bind(sListenFD, (struct sockaddr *)&local, sizeof(SOCKADDR_IN));// Bind
+	listen(sListenFD, 3);// Listen
+	std::cout << "*****Listen Socket FD: " << sListenFD << std::endl;
+	/*GetSocketOpt(sListenFD);
+	SetSocketOpt(sListenFD);
+	GetSocketOpt(sListenFD);*/
 
-	g_ClientSocketArr[g_iTotalConn++] = sListen;
+	g_ClientSocketArr[g_iTotalConn++] = sListenFD;
 
 	CreateThread(NULL, 0, WorkerThread, NULL, 0, &dwThreadId);// Create worker thread
 
@@ -40,13 +65,15 @@ int main(int argc, char **args)
 
 	while (TRUE)
 	{
-		sClient = accept(sListen, (struct sockaddr *)&client, &iaddrSize);// Accept a connection
+		connectedFD = accept(sListenFD, (struct sockaddr *)&client, &iaddrSize);// Accept a connection
 		printf("Accepted client:%s:%d\n", inet_ntoa(client.sin_addr), ntohs(client.sin_port));
-		std::cout << "*****accept Socket FD: " << sClient << std::endl;
+		std::cout << "*****accept Socket FD: " << connectedFD << std::endl;
+		
+		//GetSocketOpt(connectedFD);
 
 		Sleep(200);
-		std::cout << "*****insert accepted socket: " << sClient << std::endl;
-		g_ClientSocketArr[g_iTotalConn++] = sClient;// Add socket to g_CliSocketArr
+		std::cout << "*****insert accepted socket: " << connectedFD << std::endl;
+		g_ClientSocketArr[g_iTotalConn++] = connectedFD;// Add socket to g_CliSocketArr
 	}
 	return 0;
 }
@@ -70,7 +97,8 @@ DWORD WINAPI WorkerThread(LPVOID lpParam)
 		//从listenSocket中，accept获得一个建立连接的FileDescriptor后，listenSocket的FileDescriptor就不可读了。新的FileDescriptor没有数据写入的话，也不可读。
 		//
 		ret = select(0, &fdread, NULL, NULL, &tempTimeValue);
-		
+		memset(&szMessage, 0, MSGSIZE);
+
 		if (ret == 0)
 		{
 			continue;// Time expired
@@ -92,12 +120,12 @@ DWORD WINAPI WorkerThread(LPVOID lpParam)
 					if (ret == 0)
 					{
 						int a = 3;
-						/*printf("Client socket %d closed.\n", g_ClientSocketArr);
+						std::cout << "Client socket FD: " << g_ClientSocketArr[i] << "close." << std::endl;
 						closesocket(g_ClientSocketArr[i]);
 						if (i < --g_iTotalConn)
 						{
 							g_ClientSocketArr[i] = g_ClientSocketArr[g_iTotalConn];
-						}*/
+						}
 					}
 					else if (ret == SOCKET_ERROR)
 					{
@@ -110,6 +138,8 @@ DWORD WINAPI WorkerThread(LPVOID lpParam)
 						//send(g_ClientSocketArr[i], szMessage, strlen(szMessage), 0);
 
 						std::cout << "receive message from client" << std::endl;
+						std::cout << szMessage << std::endl;
+						//Sleep(1000);
 					}
 				}
 			}

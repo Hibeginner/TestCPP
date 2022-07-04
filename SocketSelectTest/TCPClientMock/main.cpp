@@ -1,7 +1,7 @@
 #include <winsock.h>
 #include <stdio.h>
 
-#define PORT 5150
+#define PORT 8082
 #define MSGSIZE 1024
 
 #pragma comment(lib, "ws2_32.lib")
@@ -19,7 +19,7 @@ int main(int argc, char **args)
 	DWORD dwThreadId;
 
 	WSAStartup(0x0202, &wsaData);// Initialize Windows socket library
-	clientSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);// Create listening socket
+	clientSocket = socket(AF_INET, SOCK_STREAM, 0);// Create listening socket
 	local.sin_addr.S_un.S_addr = htonl(INADDR_LOOPBACK);
 	local.sin_family = AF_INET;
 	local.sin_port = htons(PORT);
@@ -31,14 +31,24 @@ int main(int argc, char **args)
 		return 1;
 	}
 	printf("call connect\n");
-	Sleep(10000);
+	Sleep(100);
 	
 	char szMessage[MSGSIZE];
+	memset(&szMessage, 0, MSGSIZE);
 	szMessage[0] = 'a';
 	szMessage[1] = 'b';
-	send(clientSocket, szMessage, strlen(szMessage), 0);
+	size_t messageLength = strlen(szMessage);
+	for (int i = 0; i < 50; i++)
+	{
+		send(clientSocket, szMessage, messageLength, 0);
+		Sleep(50);
+	}
 
 	printf("call send\n");
+	Sleep(200);
+	closesocket(clientSocket);
+	int a = 3;
+
 	Sleep(20000);
 	//while (1)
 	//{

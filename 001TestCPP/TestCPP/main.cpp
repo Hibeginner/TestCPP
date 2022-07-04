@@ -235,6 +235,7 @@ void TestTemplate()
 
 	TemplateTest<bool> boolTemplateTest;
 	boolTemplateTest.setValue(true);
+
 }
 
 void TestVariableParameter()
