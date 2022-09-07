@@ -271,6 +271,18 @@ void TestCPUEndian(void)
 	bool result = (c.b == 1);//true 小端模式，低地址放低位
 }
 
+void TestPrecision()
+{
+	double testDoubleA = 0.3;//https://juejin.cn/post/6844903903071322119
+	double testDoubleB = 0.2;
+	double testDoubleC = testDoubleA - testDoubleB;
+
+	float testFloatA = 0.3;
+	float testFloatB = 0.2;
+	float testFloatC = testFloatA - testFloatB;
+	float testFloatD = testFloatC + testFloatB;
+}
+
 int main(void) {
 	TestCPUEndian();
 	TestCharsetInMemory();
@@ -280,8 +292,7 @@ int main(void) {
 	testPtrPtr();
 	TestString();
 	TestTemplate();
-
-	
+	TestPrecision();
 
 	GetHash("GuildNewsTable");
 
