@@ -150,15 +150,6 @@ void testThrowException()
 	int b = 2;
 }
 
-void testPtrPtr()
-{
-	int aInt = 2;
-	int *aIntPtrArr[1];
-	int aIntArr[2] = { 2,5 };
-	aIntPtrArr[0] = &aInt;
-	int **intPtrPtr = aIntPtrArr;
-}
-
 void testClassField()
 {
 	Point p(3,5);
@@ -271,6 +262,16 @@ void TestCPUEndian(void)
 	bool result = (c.b == 1);//true 小端模式，低地址放低位
 }
 
+
+void testPtrPtr()
+{
+	int aInt = 2;
+	int *aIntPtrArr[1];
+	int aIntArr[2] = { 2,5 };
+	aIntPtrArr[0] = &aInt;
+	int **intPtrPtr = aIntPtrArr;
+}
+
 void TestPtrPtr(int argc, char *argv[])
 {
 	int a = 3;
@@ -291,7 +292,21 @@ void TestPtrPtr(int argc, char *argv[])
 	char *charArray[] = {char1, char2};
 }
 
-int main(int argc, char * argv[]) {
+
+void TestPrecision()
+{
+	double testDoubleA = 0.3;//https://juejin.cn/post/6844903903071322119
+	double testDoubleB = 0.2;
+	double testDoubleC = testDoubleA - testDoubleB;
+
+	float testFloatA = 0.3;
+	float testFloatB = 0.2;
+	float testFloatC = testFloatA - testFloatB;
+	float testFloatD = testFloatC + testFloatB;
+}
+
+int main(int argc, char *argv[])
+{
 	TestPtrPtr(argc, argv);
 	TestCPUEndian();
 	TestCharsetInMemory();
@@ -301,8 +316,7 @@ int main(int argc, char * argv[]) {
 	testPtrPtr();
 	TestString();
 	TestTemplate();
-
-	
+	TestPrecision();
 
 	GetHash("GuildNewsTable");
 
