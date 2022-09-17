@@ -271,7 +271,28 @@ void TestCPUEndian(void)
 	bool result = (c.b == 1);//true 小端模式，低地址放低位
 }
 
-int main(void) {
+void TestPtrPtr(int argc, char *argv[])
+{
+	int a = 3;
+	int b = 4;
+	int *intArray[] = { &a, &b };
+	int *intPtr = (int *)intArray;
+	std::cout << "typeid *intArray：" << typeid(intArray).name() << std::endl;
+
+	int *argvPtr = (int *)argv;
+	printf("argument: %s\n", *argvPtr);
+	std::cout << "typeid *argv：" << typeid(*argv).name() << std::endl;
+	std::cout << "typeid argv[0]：" << typeid(argv[0]).name() << std::endl;
+	std::cout << "sizeof argv[0]：" << sizeof(argv[0]) << std::endl;
+	std::cout << "typeid *argvPtr：" << typeid(*argvPtr).name() << std::endl;
+
+	char *char1 = "666666666666666666";
+	char *char2 = "555";
+	char *charArray[] = {char1, char2};
+}
+
+int main(int argc, char * argv[]) {
+	TestPtrPtr(argc, argv);
 	TestCPUEndian();
 	TestCharsetInMemory();
 	TestVariableParameter();
