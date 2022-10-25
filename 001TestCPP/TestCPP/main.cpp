@@ -281,7 +281,7 @@ void TestPtrPtr(int argc, char *argv[])
 	std::cout << "typeid *intArray£º" << typeid(intArray).name() << std::endl;
 
 	int *argvPtr = (int *)argv;
-	printf("argument: %s\n", *argvPtr);
+	printf("argument: %d\n", *argvPtr);
 	std::cout << "typeid *argv£º" << typeid(*argv).name() << std::endl;
 	std::cout << "typeid argv[0]£º" << typeid(argv[0]).name() << std::endl;
 	std::cout << "sizeof argv[0]£º" << sizeof(argv[0]) << std::endl;
