@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CheckScreenLock.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="FileWriter.cpp" />
     <ClCompile Include="FolderViewGenerator.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="UnityEditorMappingGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheckScreenLock.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="FileWriter.h" />
     <ClInclude Include="FolderViewGenerator.h" />

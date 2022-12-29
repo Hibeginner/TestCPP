@@ -1,6 +1,7 @@
 #include "UnityEditorMappingGenerator.h"
 #include "FolderViewGenerator.h"
 #include "ShowExeDependentDLL.h"
+#include "CheckScreenLock.h"
 
 using namespace std;
 
@@ -75,6 +76,8 @@ void ShowExeUsingDll(int argc, const char *argv[])
 
 int main(int argc, const char *argv[])
 {
+	CheckScreenLock checker;
+	bool isLock = checker.IsSessionLocked();
 	//GenerateFoldView(argc, argv);
 	ShowExeUsingDll(argc, argv);
 	return 0;

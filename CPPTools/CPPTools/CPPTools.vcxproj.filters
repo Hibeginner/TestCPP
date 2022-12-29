@@ -36,6 +36,9 @@
     <ClCompile Include="ShowExeDependentDLL.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CheckScreenLock.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileReader.h">
@@ -54,6 +57,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ShowExeDependentDLL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckScreenLock.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
