@@ -39,6 +39,9 @@
     <ClCompile Include="CheckScreenLock.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="EXESignReader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileReader.h">
@@ -60,6 +63,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CheckScreenLock.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EXESignReader.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

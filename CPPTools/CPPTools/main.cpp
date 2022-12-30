@@ -2,6 +2,7 @@
 #include "FolderViewGenerator.h"
 #include "ShowExeDependentDLL.h"
 #include "CheckScreenLock.h"
+#include "EXESignReader.h"
 
 using namespace std;
 
@@ -74,11 +75,20 @@ void ShowExeUsingDll(int argc, const char *argv[])
 	shower.show(processID);
 }
 
-int main(int argc, const char *argv[])
-{
+void ShowScreenLock() {
 	CheckScreenLock checker;
 	bool isLock = checker.IsSessionLocked();
+}
+void ShowExeSignInfo() {
+	EXESignReader reader;
+	reader.ShowSignInfo();
+}
+
+int main(int argc, const char *argv[])
+{
+	ShowScreenLock();
+	ShowExeSignInfo();
 	//GenerateFoldView(argc, argv);
-	ShowExeUsingDll(argc, argv);
+	//ShowExeUsingDll(argc, argv);
 	return 0;
 }
