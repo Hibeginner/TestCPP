@@ -190,6 +190,11 @@ void TestInherit()
 	processSharedPtr(sharedP);
 
 	TestClassB *parentPtr = new ChildTestClassB(1);
+	delete parentPtr;
+
+	ChildTestClassB * childClassBPtr = new ChildTestClassB(1);
+	childClassBPtr->SaySomething();
+	delete childClassBPtr;
 }
 
 void TestString()

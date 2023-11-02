@@ -42,12 +42,36 @@ void ChildTestClass::notOverrideFunc()
 
 TestClassB::TestClassB()
 {
+	int a = 3;
+	feildA = 3;
 }
 
 TestClassB::~TestClassB()
 {
+	int a = 3;
+	SaySomething();
+}
+
+void TestClassB::SaySomething()
+{
+	int a = 3;
 }
 
 ChildTestClassB::ChildTestClassB(int a)
 {
+	int b = 3;
+	feildB = 3;
+}
+
+ChildTestClassB::~ChildTestClassB()
+{
+	int a = 3;
+	SaySomething();
+}
+
+void ChildTestClassB::SaySomething()
+{
+	TestClassB::SaySomething();//这里父类的SaySomething会被执行2次，一次在子类的析构时，一次在父类的析构时(因为父类的析构也调用了)。
+	feildA = 3;
+	int a = 3;
 }
