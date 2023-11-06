@@ -146,15 +146,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="BasketBall.cpp" />
+    <ClCompile Include="BasketBallPlayerPG.cpp" />
+    <ClCompile Include="BasketBallPlayerSG.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="TemplateTest.cpp" />
     <ClCompile Include="TestClass.cpp" />
+    <ClCompile Include="Visitor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="BasketBall.h" />
+    <ClInclude Include="BasketBallPlayerPG.h" />
+    <ClInclude Include="BasketBallPlayerSG.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="TemplateTest.h" />
     <ClInclude Include="TestClass.h" />
+    <ClInclude Include="Visitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

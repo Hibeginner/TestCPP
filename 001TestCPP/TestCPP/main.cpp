@@ -8,6 +8,9 @@
 #include <map>
 #include <functional>
 #include <vector>
+#include "BasketBall.h"
+#include "BasketBallPlayerPG.h"
+#include "BasketBallPlayerSG.h"
 using namespace std;
 
 #ifndef TEST_MULTI_INCLUDE
@@ -310,6 +313,14 @@ void TestPrecision()
 	float testFloatD = testFloatC + testFloatB;
 }
 
+void TestVisitor() {//访问者模式
+	Ball* basketBall = new BasketBall();
+	Visitor* visitorPG = new BasketBallPlayerPG();
+	Visitor* visitorSG = new BasketBallPlayerSG();
+	basketBall->Accept(visitorPG);
+	basketBall->Accept(visitorSG);
+}
+
 int main(int argc, char *argv[])
 {
 	TestPtrPtr(argc, argv);
@@ -322,6 +333,7 @@ int main(int argc, char *argv[])
 	TestString();
 	TestTemplate();
 	TestPrecision();
+	TestVisitor();
 
 	GetHash("GuildNewsTable");
 
