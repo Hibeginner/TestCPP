@@ -44,6 +44,7 @@ TestClassB::TestClassB()
 {
 	int a = 3;
 	feildA = 3;
+	SaySomething();
 }
 
 TestClassB::~TestClassB()
@@ -61,6 +62,7 @@ ChildTestClassB::ChildTestClassB(int a)
 {
 	int b = 3;
 	feildB = 3;
+	SaySomething();
 }
 
 ChildTestClassB::~ChildTestClassB()

@@ -23,18 +23,18 @@ Point* pointerArr[5];
 
 void testPointer()
 {
-	//throw std::runtime_error("xxx");//throwµÄ¹ı³ÌÓëµ÷ÓÃÏà·´£¬»áÏÈ¼ì²é×Ô¼ºÓĞÃ»ÓĞcatch×¡£¬ÔÙ»ØËİµ÷ÓÃÕß£¬Öğ²ã¼ì²é¡££¨Èç¹ûÃ»ÓĞÕÒµ½catch¿é£¬ÄÇÃ´ºóĞøĞĞÎªÓëÏµÍ³ÓĞ¹Ø¡£Ò»°ãÇé¿öÏÂ»áµ¼ÖÂ³ÌĞòÒì³£ÍË³ö¡£µ«ÊÇÏÖÔÚÀ´¿´£¬winÏµÍ³Ã»ÓĞÒì³£ÍË³ö£©
+	//throw std::runtime_error("xxx");//throwçš„è¿‡ç¨‹ä¸è°ƒç”¨ç›¸åï¼Œä¼šå…ˆæ£€æŸ¥è‡ªå·±æœ‰æ²¡æœ‰catchä½ï¼Œå†å›æº¯è°ƒç”¨è€…ï¼Œé€å±‚æ£€æŸ¥ã€‚ï¼ˆå¦‚æœæ²¡æœ‰æ‰¾åˆ°catchå—ï¼Œé‚£ä¹ˆåç»­è¡Œä¸ºä¸ç³»ç»Ÿæœ‰å…³ã€‚ä¸€èˆ¬æƒ…å†µä¸‹ä¼šå¯¼è‡´ç¨‹åºå¼‚å¸¸é€€å‡ºã€‚ä½†æ˜¯ç°åœ¨æ¥çœ‹ï¼Œwinç³»ç»Ÿæ²¡æœ‰å¼‚å¸¸é€€å‡ºï¼‰
 	Point* testPoint = new Point();
 	pointerArr[0] = testPoint;
 
 }
 
-Point genPoint() {//¾Ö²¿±äÁ¿»áÏÈµ÷ÓÃÒÆ¶¯¹¹Ôì£¬»ò¸³Öµ¹¹Ôì£¬´´½¨Ò»¸öÁÙÊ±¶ÔÏó×÷Îª·µ»Ø¡£È»ºóÏú»ÙµôÁÙÊ±¶ÔÏó
+Point genPoint() {//å±€éƒ¨å˜é‡ä¼šå…ˆè°ƒç”¨ç§»åŠ¨æ„é€ ï¼Œæˆ–èµ‹å€¼æ„é€ ï¼Œåˆ›å»ºä¸€ä¸ªä¸´æ—¶å¯¹è±¡ä½œä¸ºè¿”å›ã€‚ç„¶åé”€æ¯æ‰ä¸´æ—¶å¯¹è±¡
 	Point p(1, 3);
 	return p;
 }
 
-Point &getRefferencePoint() {//·µ»ØÒıÓÃÊ±£¬²»»áµ÷ÓÃÈÎºÎ¹¹Ôìº¯Êı¡£µ«ÊÇ¾Ö²¿±äÁ¿pÒÑ±»Ïú»Ù
+Point &getRefferencePoint() {//è¿”å›å¼•ç”¨æ—¶ï¼Œä¸ä¼šè°ƒç”¨ä»»ä½•æ„é€ å‡½æ•°ã€‚ä½†æ˜¯å±€éƒ¨å˜é‡på·²è¢«é”€æ¯
 	Point p(1, 3);
 	return p;
 }
@@ -55,7 +55,7 @@ int Paritition1(int A[], int low, int high) {
 	return low;
 }
 
-void QuickSort(int A[], int low, int high) //¿ìÅÅÄ¸º¯Êı
+void QuickSort(int A[], int low, int high) //å¿«æ’æ¯å‡½æ•°
 {
 	if (low < high) {
 		int pivot = Paritition1(A, low, high);
@@ -68,7 +68,7 @@ struct divide {
 	int operator()(int a1, int a2) {
 		return a1 / a2;
 	}
-	static int matchFun(int a1, int a2) {//¾²Ì¬³ÉÔ±º¯Êı£¬²ÅÊÇÖ±½Ó¿Éµ÷ÓÃµÄº¯Êı¡£ÆÕÍ¨³ÉÔ±º¯Êı£¬ÓĞ¸öÒşÊ½µÄthisÖ¸Õë£¬±ØĞëÊµÀı»¯ºó²ÅÄÜµ÷ÓÃ
+	static int matchFun(int a1, int a2) {//é™æ€æˆå‘˜å‡½æ•°ï¼Œæ‰æ˜¯ç›´æ¥å¯è°ƒç”¨çš„å‡½æ•°ã€‚æ™®é€šæˆå‘˜å‡½æ•°ï¼Œæœ‰ä¸ªéšå¼çš„thisæŒ‡é’ˆï¼Œå¿…é¡»å®ä¾‹åŒ–åæ‰èƒ½è°ƒç”¨
 		return a1 + a2;
 	}
 };
@@ -85,6 +85,8 @@ void processSharedPtr(const std::shared_ptr<TestClass> &sharedP) {
 
 void testRightReff(Point && pRef){
 	int a = 1;
+	Point& trytoRefRightReff = pRef;
+	std::cout << "å³å€¼å¼•ç”¨æœ¬èº«ï¼Œæ˜¯å·¦å€¼" << trytoRefRightReff.x << std::endl;
 }
 
 union testUnion
@@ -103,22 +105,22 @@ void testVectorReallocation()
 
 	for (int i = 2; i < 12; i++)
 	{
-		pointVec.emplace_back(i, i);//À©ÈİµÄÊ±ºò£¬µ÷ÓÃµÄmoveÓïÒå
+		pointVec.emplace_back(i, i);//æ‰©å®¹çš„æ—¶å€™ï¼Œè°ƒç”¨çš„moveè¯­ä¹‰
 	}
 }
 
 const char *getResult()
 {
-	//·µ»Ø¾²Ì¬×Ö·ûÊı×é
-	const char *s = "This is a string";//×Ö·û´®×ÖÃæÁ¿±¾ÉíÓ¦¸ÃÊÇconst char[]ÀàĞÍ£¬ÕâÀïÊÇ¸öconst char*¡£×Ö·û´®×ÖÃæ³£Á¿²»Í¬ÓÚÆÕÍ¨µÄ¾Ö²¿±äÁ¿£¬¾ßÓĞstatic duration lifetime,ÕâÕû¸ö³ÌĞòµÄÉúÃüÖÜÆÚÖĞ¶¼½«´æÔÚ
+	//è¿”å›é™æ€å­—ç¬¦æ•°ç»„
+	const char *s = "This is a string";//å­—ç¬¦ä¸²å­—é¢é‡æœ¬èº«åº”è¯¥æ˜¯const char[]ç±»å‹ï¼Œè¿™é‡Œæ˜¯ä¸ªconst char*ã€‚å­—ç¬¦ä¸²å­—é¢å¸¸é‡ä¸åŒäºæ™®é€šçš„å±€éƒ¨å˜é‡ï¼Œå…·æœ‰static duration lifetime,è¿™æ•´ä¸ªç¨‹åºçš„ç”Ÿå‘½å‘¨æœŸä¸­éƒ½å°†å­˜åœ¨
 	return s;
 }
 
 void showStr(const std::string &str)
 {
 	std::string temp = str;
-	std::cout << "showStrº¯ÊıÖĞ£¬strµØÖ·£º" << (void *)str.c_str() << std::endl;
-	std::cout << "showStrº¯ÊıÖĞ£¬tempµØÖ·£º" << (void *)temp.c_str() << std::endl;
+	std::cout << "showStrå‡½æ•°ä¸­ï¼Œstråœ°å€ï¼š" << (void *)str.c_str() << std::endl;
+	std::cout << "showStrå‡½æ•°ä¸­ï¼Œtempåœ°å€ï¼š" << (void *)temp.c_str() << std::endl;
 }
 
 uint32_t GetHash(const char *str)
@@ -158,34 +160,34 @@ void testClassField()
 	Point p(3,5);
 	Point *pPtr = &p;
 	char *charPtr = (char *)pPtr;
-	char* yPosPtr = charPtr + 4;//ÄÃµ½µØÖ·Æ«ÒÆ
-	int *yIntPtr = (int *)yPosPtr;//Æ«ÒÆºóµÄµØÖ·×ª³ÉÖ¸¶¨ÀàĞÍ
-	*yIntPtr = 7;//È»ºóÉèÖµ
+	char* yPosPtr = charPtr + 4;//æ‹¿åˆ°åœ°å€åç§»
+	int *yIntPtr = (int *)yPosPtr;//åç§»åçš„åœ°å€è½¬æˆæŒ‡å®šç±»å‹
+	*yIntPtr = 7;//ç„¶åè®¾å€¼
 
 }
 
 void TestInherit()
 {
-	//testUnion aUnion = {2};//ÒòÎªpoint¶¨ÒåÁË×Ô¼ºµÄ¹¹Ôìº¯Êı»òÎö¹¹º¯Êı£¬ËùÒÔÎŞ·¨ÊµÀı»¯Õâ¸öunion¡£³ı·ÇÕâ¸öunion¶¨Òå×Ô¼ºµÄ¹¹ÔìºÍÎö¹¹º¯Êı¡£¿ÉÒÔÀí½âÎªpointÔÚunionÀïÊÇÒÔÖ¸ÕëĞÎÊ½´æÔÚµÄ£¬±àÒëÆ÷ÎŞ·¨×Ô¶¯Îö¹¹Ëü¡££¨ÎÒ¾õµÃ±àÒëÆ÷»¹ÄÜÔÙÓÅ»¯Ò»ÏÂ£©
+	//testUnion aUnion = {2};//å› ä¸ºpointå®šä¹‰äº†è‡ªå·±çš„æ„é€ å‡½æ•°æˆ–ææ„å‡½æ•°ï¼Œæ‰€ä»¥æ— æ³•å®ä¾‹åŒ–è¿™ä¸ªunionã€‚é™¤éè¿™ä¸ªunionå®šä¹‰è‡ªå·±çš„æ„é€ å’Œææ„å‡½æ•°ã€‚å¯ä»¥ç†è§£ä¸ºpointåœ¨unioné‡Œæ˜¯ä»¥æŒ‡é’ˆå½¢å¼å­˜åœ¨çš„ï¼Œç¼–è¯‘å™¨æ— æ³•è‡ªåŠ¨ææ„å®ƒã€‚ï¼ˆæˆ‘è§‰å¾—ç¼–è¯‘å™¨è¿˜èƒ½å†ä¼˜åŒ–ä¸€ä¸‹ï¼‰
 	ChildTestClass childTestClass;
 	childTestClass.saySomething();
 	childTestClass.notOverrideFunc();
 
 	TestClass *testClassPtr = &childTestClass;
 	testClassPtr->saySomething();
-	testClassPtr->notOverrideFunc();//µ÷ÓÃ¸¸ÀàµÄ
+	testClassPtr->notOverrideFunc();//è°ƒç”¨çˆ¶ç±»çš„
 
 	/*TestClass testClass = static_cast<TestClass>(childTestClass);
-	testClass.saySomething();//Ç¿ÖÆÀàĞÍ×ª»»ºó£¬µ÷ÓÃ¸¸ÀàµÄ*/
+	testClass.saySomething();//å¼ºåˆ¶ç±»å‹è½¬æ¢åï¼Œè°ƒç”¨çˆ¶ç±»çš„*/
 
-	/*TestClass testClass = static_cast<TestClass>(childTestClass);//Êµ¼ÊÉÏµ÷ÓÃÁË¸³Öµ¹¹Ôì
+	/*TestClass testClass = static_cast<TestClass>(childTestClass);//å®é™…ä¸Šè°ƒç”¨äº†èµ‹å€¼æ„é€ 
 	ChildTestClass childClassCastedPtr = static_cast<ChildTestClass>(testClass);
 	childClassCastedPtr.saySomething();*/
 	/*TestClass *testClass = dynamic_cast<TestClass*>(&childTestClass);
-	testClass->saySomething();//µ÷ÓÃ×ÓÀàµÄ*/
+	testClass->saySomething();//è°ƒç”¨å­ç±»çš„*/
 	/*TestClass *testClass = dynamic_cast<TestClass *>(&childTestClass);
 	ChildTestClass *childTestClassPtr = dynamic_cast<ChildTestClass *>(testClass);
-	childTestClassPtr->saySomething();//µ÷ÓÃ×ÓÀàµÄ*/
+	childTestClassPtr->saySomething();//è°ƒç”¨å­ç±»çš„*/
 
 	//const std::shared_ptr<TestClass> &baseClassSharedPtrRef = std::make_shared<ChildTestClass>();
 	size_t childTestClassSize = sizeof(ChildTestClass);
@@ -207,21 +209,21 @@ void TestString()
 	const char *testCharB = "This is a string";
 	std::cout << "Address is : " << (void *)testCharB << " Value is :" << testCharB << std::endl;
 
-	std::string testStrA = "This is a string";//std::string»á×Ô¼ºnewÒ»¸öchar*´æ·Å×Ö·û¡£ÓëÉÏÃæ¾²Ì¬×Ö·ûÊı×éµØÖ·²»Í¬
+	std::string testStrA = "This is a string";//std::stringä¼šè‡ªå·±newä¸€ä¸ªchar*å­˜æ”¾å­—ç¬¦ã€‚ä¸ä¸Šé¢é™æ€å­—ç¬¦æ•°ç»„åœ°å€ä¸åŒ
 	std::cout << "Address is : " << (void *)testStrA.c_str() << " Value is :" << testStrA << std::endl;
 
 
 	std::string strOnStack = "Hello,World";
-	std::cout << "mainº¯ÊıÖĞ£¬strOnStackµØÖ·£º" << (void *)strOnStack.c_str() << std::endl;
+	std::cout << "mainå‡½æ•°ä¸­ï¼ŒstrOnStackåœ°å€ï¼š" << (void *)strOnStack.c_str() << std::endl;
 	showStr(strOnStack);
 
 	showStr("Hello,World");
 	const char charArr[] = "Hello,World";
-	std::cout << "mainº¯ÊıÖĞ£¬charArrµØÖ·£º" << (void *)&charArr[0] << std::endl;
-	showStr(charArr);//¹¹ÔìÒ»¸öÁÙÊ±µÄstd::string×÷Îª²ÎÊı£¿
+	std::cout << "mainå‡½æ•°ä¸­ï¼ŒcharArråœ°å€ï¼š" << (void *)&charArr[0] << std::endl;
+	showStr(charArr);//æ„é€ ä¸€ä¸ªä¸´æ—¶çš„std::stringä½œä¸ºå‚æ•°ï¼Ÿ
 }
 
-template class TemplateTest<bool>;//¶¨ÒåÌØ»¯°æ±¾
+template class TemplateTest<bool>;//å®šä¹‰ç‰¹åŒ–ç‰ˆæœ¬
 
 void TestTemplate()
 {
@@ -244,17 +246,17 @@ void TestVariableParameter()
 
 void TestCharsetInMemory()
 {
-	char *charPtr = "¸ù";//ÄÚ´æÖĞ£¬gbk
+	char *charPtr = "æ ¹";//å†…å­˜ä¸­ï¼Œgbk
 	for (const char *ptr = charPtr; *ptr != 0; ptr++)
 	{
-		std::cout << "charset value£º" << *ptr << std::endl;
+		std::cout << "charset valueï¼š" << *ptr << std::endl;
 	}
 
-	wchar_t *wideCharPtr = L"¸ù";//ÄÚ´æÖĞ£¬WindowsÊÇUnicodeĞ¡¶Ë£¬¼´UTF-16LE¡£Ó²ÅÌÉÏÊÇUTF8×Ö½ÚÁ÷´æ·ÅE6A0B9
+	wchar_t *wideCharPtr = L"æ ¹";//å†…å­˜ä¸­ï¼ŒWindowsæ˜¯Unicodeå°ç«¯ï¼Œå³UTF-16LEã€‚ç¡¬ç›˜ä¸Šæ˜¯UTF8å­—èŠ‚æµå­˜æ”¾E6A0B9
 	const char *wcharPtrRef = (char *)wideCharPtr;
 	for (const char *ptr = wcharPtrRef; *ptr != 0; ptr++)
 	{
-		std::cout << "charset value£º" << *ptr << std::endl;
+		std::cout << "charset valueï¼š" << *ptr << std::endl;
 	}
 }
 
@@ -267,7 +269,7 @@ void TestCPUEndian(void)
 	}c;
 	c.a = 1;
 	int realInt = 1;
-	bool result = (c.b == 1);//true Ğ¡¶ËÄ£Ê½£¬µÍµØÖ··ÅµÍÎ»
+	bool result = (c.b == 1);//true å°ç«¯æ¨¡å¼ï¼Œä½åœ°å€æ”¾ä½ä½
 }
 
 
@@ -286,14 +288,14 @@ void TestPtrPtr(int argc, char *argv[])
 	int b = 4;
 	int *intArray[] = { &a, &b };
 	int *intPtr = (int *)intArray;
-	std::cout << "typeid *intArray£º" << typeid(intArray).name() << std::endl;
+	std::cout << "typeid *intArrayï¼š" << typeid(intArray).name() << std::endl;
 
 	int *argvPtr = (int *)argv;
 	printf("argument: %d\n", *argvPtr);
-	std::cout << "typeid *argv£º" << typeid(*argv).name() << std::endl;
-	std::cout << "typeid argv[0]£º" << typeid(argv[0]).name() << std::endl;
-	std::cout << "sizeof argv[0]£º" << sizeof(argv[0]) << std::endl;
-	std::cout << "typeid *argvPtr£º" << typeid(*argvPtr).name() << std::endl;
+	std::cout << "typeid *argvï¼š" << typeid(*argv).name() << std::endl;
+	std::cout << "typeid argv[0]ï¼š" << typeid(argv[0]).name() << std::endl;
+	std::cout << "sizeof argv[0]ï¼š" << sizeof(argv[0]) << std::endl;
+	std::cout << "typeid *argvPtrï¼š" << typeid(*argvPtr).name() << std::endl;
 
 	char *char1 = "666666666666666666";
 	char *char2 = "555";
@@ -313,7 +315,7 @@ void TestPrecision()
 	float testFloatD = testFloatC + testFloatB;
 }
 
-void TestVisitor() {//·ÃÎÊÕßÄ£Ê½
+void TestVisitor() {//è®¿é—®è€…æ¨¡å¼
 	Ball* basketBall = new BasketBall();
 	Visitor* visitorPG = new BasketBallPlayerPG();
 	Visitor* visitorSG = new BasketBallPlayerSG();
@@ -354,6 +356,8 @@ int main(int argc, char *argv[])
 	QuickSort(arr, 0, 7);
 
 	Point &&rightRefferenceP = genPoint();
+	//testRightReff(rightRefferenceP);//rightRefferencePæ˜¯ä¸€ä¸ªå·¦å€¼ï¼Œæ— æ³•ç”¨å‡½æ•°å‚æ•°çš„å³å€¼å¼•ç”¨ç»‘å®šåˆ°å®ƒèº«ä¸Šï¼Œéœ€è¦åŠ std::move
+	testRightReff(std::move(rightRefferenceP));
 	Point leftP = Point();
 	testRightReff(std::move(leftP));
 	//Point valueP = genPoint();
@@ -407,8 +411,8 @@ int main(int argc, char *argv[])
 		char sex;//1 + 3
 		int age;//4
 		float score;//4
-		char addr[30];//30 + 2£¬
-	};//½á¹¹Ìå×î³¤Êı¾İÀàĞÍÎªint£¬4×Ö½Ú¡£ÄÇÃ´¾ÍÒÔ4×Ö½Ú¶ÔÆë¡£
+		char addr[30];//30 + 2ï¼Œ
+	};//ç»“æ„ä½“æœ€é•¿æ•°æ®ç±»å‹ä¸ºintï¼Œ4å­—èŠ‚ã€‚é‚£ä¹ˆå°±ä»¥4å­—èŠ‚å¯¹é½ã€‚
 	Student student1 = {1.0, "LL", 'M', 22, 88, "abcd"};
 	int doubleSize = sizeof(double);
 	int intSize = sizeof(int);
@@ -447,8 +451,8 @@ int main(int argc, char *argv[])
 	outFile.close();
 
 	double doubleValue = 3.14;
-	const int& refInt = doubleValue;//´Ó¡°double¡±×ª»»µ½¡°const int¡±£¬¿ÉÄÜ¶ªÊ§Êı¾İ¡£Êµ¼ÊÉÏÊÇ°ó¶¨µ½ÁËÒ»¸öÁÙÊ±Á¿ÉÏ
-	//int& nonConstRefInf = doubleValue;//·Ç·¨£¬·Ç³£Á¿ÒıÓÃ£¬²»ÄÜ°ó¶¨µ½ÁÙÊ±Á¿ÉÏ
+	const int& refInt = doubleValue;//ä»â€œdoubleâ€è½¬æ¢åˆ°â€œconst intâ€ï¼Œå¯èƒ½ä¸¢å¤±æ•°æ®ã€‚å®é™…ä¸Šæ˜¯ç»‘å®šåˆ°äº†ä¸€ä¸ªä¸´æ—¶é‡ä¸Š
+	//int& nonConstRefInf = doubleValue;//éæ³•ï¼Œéå¸¸é‡å¼•ç”¨ï¼Œä¸èƒ½ç»‘å®šåˆ°ä¸´æ—¶é‡ä¸Š
 
 	extern int testGlobalFunc(int a, int b);
 	extern int globalInt;
@@ -464,12 +468,12 @@ int main(int argc, char *argv[])
 	size_t index = 3;
 
 	const char *charPointer = "abcd";
-	std::string convertedStr = static_cast<std::string>(charPointer);//×Ö·û´®×ÖÃæÖµ×ªstring£¬¹À¼ÆÓĞ¿½±´¹¹Ôì
+	std::string convertedStr = static_cast<std::string>(charPointer);//å­—ç¬¦ä¸²å­—é¢å€¼è½¬stringï¼Œä¼°è®¡æœ‰æ‹·è´æ„é€ 
 	convertedStr = "123";
 
 	int testInt = 2;
 	const int *intPointer = &testInt;
-	//std::string convertedIntStr = static_cast<std::string>(intPointer);//´íÎó£º²»´æÔÚ´Óint *µ½stringµÄ¹¹Ôìº¯Êı
+	//std::string convertedIntStr = static_cast<std::string>(intPointer);//é”™è¯¯ï¼šä¸å­˜åœ¨ä»int *åˆ°stringçš„æ„é€ å‡½æ•°
 
 	int sw1;
 	int sw2;
