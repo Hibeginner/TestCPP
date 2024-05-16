@@ -225,6 +225,16 @@ void TestString()
 
 template class TemplateTest<bool>;//定义特化版本
 
+template<> void printList<int>(const int& firstParam)//特化版本
+{
+	//printList(firstParam);//这里会循环调用了
+}
+
+//void printList(const int& firstParam)//这个和上面特化的版本是一样的
+//{
+//	std::cout << "template specialization" << std::endl;
+//}
+
 void TestTemplate()
 {
 	TemplateTest<int> templateTest;
@@ -237,6 +247,7 @@ void TestTemplate()
 	TemplateTest<bool> boolTemplateTest;
 	boolTemplateTest.setValue(true);
 
+	printList<int>(3);
 }
 
 void TestVariableParameter()
