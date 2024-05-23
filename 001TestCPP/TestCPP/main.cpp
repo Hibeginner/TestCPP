@@ -11,6 +11,7 @@
 #include "BasketBall.h"
 #include "BasketBallPlayerPG.h"
 #include "BasketBallPlayerSG.h"
+#include "Child.h"
 using namespace std;
 
 #ifndef TEST_MULTI_INCLUDE
@@ -200,6 +201,9 @@ void TestInherit()
 	ChildTestClassB * childClassBPtr = new ChildTestClassB(1);
 	childClassBPtr->SaySomething();
 	delete childClassBPtr;
+
+	Child* childPtr = new Child(3);
+	delete childPtr;
 }
 
 void TestString()
