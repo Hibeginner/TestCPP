@@ -6,6 +6,6 @@ public:
 	Child();
 	Child(int a);
 
-	//virtual void SaySomething() override;
+	virtual void SaySomething() override;
 };
 

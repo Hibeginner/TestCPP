@@ -12,6 +12,8 @@
 #include "BasketBallPlayerPG.h"
 #include "BasketBallPlayerSG.h"
 #include "Child.h"
+#include "UEWidget.h"
+#include "UE4SubSystem.h"
 using namespace std;
 
 #ifndef TEST_MULTI_INCLUDE
@@ -340,6 +342,9 @@ void TestVisitor() {//访问者模式
 
 int main(int argc, char *argv[])
 {
+	UEWidget* temp = new UEWidget();
+	temp->OnCheckboxSelected();
+
 	TestPtrPtr(argc, argv);
 	TestCPUEndian();
 	TestCharsetInMemory();

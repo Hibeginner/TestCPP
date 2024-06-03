@@ -48,6 +48,12 @@
     <ClCompile Include="Child.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UEWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UE4SubSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Point.h">
@@ -78,6 +84,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Child.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UEWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UE4SubSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

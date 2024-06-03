@@ -8,6 +8,6 @@ Child::Child(int a ):Parent( a)
 {
 }
 
-//void Child::SaySomething()
-//{
-//}
+void Child::SaySomething()
+{
+}
