@@ -86,9 +86,9 @@ void processSharedPtr(const std::shared_ptr<TestClass> &sharedP) {
 
 }
 
-void testRightReff(Point && pRef){
+void testRightReference(Point && pRef){
 	int a = 1;
-	Point& trytoRefRightReff = pRef;
+	Point& trytoRefRightReff = pRef;//这里，一个左值引用，可以绑定到这个变量上。因为右值引用本身，是个左值，它绑定到一个即将销毁的对象上了。
 	std::cout << "右值引用本身，是左值" << trytoRefRightReff.x << std::endl;
 }
 
@@ -374,12 +374,12 @@ int main(int argc, char *argv[])
 
 	int arr[8] = {22,66,44,99,33,77,11,55};
 	QuickSort(arr, 0, 7);
-
+	Point valueP = genPoint();//函数内部，析构point对象之前，调用移动构造，在valueP这里构造了一个新对象。
 	Point &&rightRefferenceP = genPoint();
-	//testRightReff(rightRefferenceP);//rightRefferenceP是一个左值，无法用函数参数的右值引用绑定到它身上，需要加std::move
-	testRightReff(std::move(rightRefferenceP));
+	//testRightReference(rightRefferenceP);//rightRefferenceP是一个左值，无法用函数参数的右值引用绑定到它身上，需要加std::move
+	testRightReference(std::move(rightRefferenceP));
 	Point leftP = Point();
-	testRightReff(std::move(leftP));
+	testRightReference(std::move(leftP));
 	//Point valueP = genPoint();
 	//Point &refferenceP = genPoint();
 	//Point &refferenceP = getRefferencePoint();
